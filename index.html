@@ -6,22 +6,41 @@
   <title>AI 知识库每日文章</title>
   <style>
     body { margin:0; font-family:Inter, ui-sans-serif, system-ui, sans-serif; background:#f7f2ea; color:#16201d; }
-    main { max-width:900px; margin:0 auto; padding:56px 24px; }
+    main { max-width:980px; margin:0 auto; padding:56px 24px 80px; }
     h1 { font-family:Georgia, "Times New Roman", serif; font-size:56px; line-height:1; margin:0 0 18px; }
     p { color:#596a63; line-height:1.7; font-size:18px; }
-    a.card { display:block; margin-top:28px; padding:24px; border:1px solid #dacfc0; background:#fffaf2; border-radius:10px; color:inherit; text-decoration:none; }
-    .date { color:#b85c3b; font-weight:800; margin-bottom:10px; }
+    .summary { display:flex; justify-content:space-between; gap:16px; align-items:end; border-bottom:1px solid #dacfc0; padding-bottom:24px; }
+    .count { color:#b85c3b; font-weight:800; white-space:nowrap; }
+    .articles { display:grid; gap:14px; margin-top:28px; }
+    a.card { display:grid; grid-template-columns:minmax(0,180px) 1fr auto; gap:22px; align-items:center; padding:22px 24px; border:1px solid #dacfc0; background:#fffaf2; border-radius:10px; color:inherit; text-decoration:none; }
+    a.card:hover { border-color:#b85c3b; transform:translateY(-1px); }
+    .card-meta { display:flex; gap:14px; align-items:center; }
+    .number { color:#b85c3b; font-weight:900; letter-spacing:.06em; }
+    .date { color:#596a63; font-size:14px; }
+    .open { color:#2f6f61; font-weight:700; white-space:nowrap; }
+    @media (max-width:700px) {
+      h1 { font-size:42px; }
+      .summary { display:block; }
+      a.card { grid-template-columns:1fr; gap:10px; }
+    }
   </style>
 </head>
 <body>
   <main>
-    <h1>AI 工具每日观察</h1>
-    <p>这里收纳每日更新的 AI 工具观察文章，用大白话解释新工具能做什么、适合谁、有什么优点和风险。</p>
-    <a class="card" href="./2026-06-20/">
-      <div class="date">2026-06-20</div>
+    <section class="summary">
+      <div><h1>AI 工具每日观察</h1><p>按日期查询每日 AI 工具、模型动态和使用判断。</p></div>
+      <div class="count">共 2 篇</div>
+    </section>
+    <section class="articles"><a class="card" href="./2026-06-20/">
+      <div class="card-meta"><span class="number">#002</span><span class="date">2026-06-20</span></div>
       <strong>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</strong>
-      <p>打开今日图文文章。</p>
+      <span class="open">查看文章 →</span>
     </a>
+<a class="card" href="./2026-06-19/">
+      <div class="card-meta"><span class="number">#001</span><span class="date">2026-06-19</span></div>
+      <strong>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</strong>
+      <span class="open">查看文章 →</span>
+    </a></section>
   </main>
 </body>
 </html>

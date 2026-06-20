@@ -26,6 +26,15 @@
     .toc a { white-space:nowrap; text-decoration:none; color:#35423d; border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:var(--panel); font-size:13px; }
     .intro { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:32px 0; }
     .note { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:20px; line-height:1.7; color:#40504a; }
+    .model-updates { padding:34px 0 20px; border-top:1px solid var(--line); }
+    .section-heading { display:flex; align-items:end; justify-content:space-between; gap:18px; margin-bottom:18px; }
+    .section-heading h2 { font-family:Georgia, "Times New Roman", serif; font-size:38px; margin:0; }
+    .update-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .update-card, .empty-update { background:var(--dark); color:#eef3ef; border-radius:9px; padding:20px; line-height:1.7; }
+    .update-card h3 { font-size:20px; line-height:1.35; margin:10px 0 14px; }
+    .update-card p { color:#cbd6d0; }
+    .update-card a { color:#f1b092; }
+    .update-meta { color:#95b5aa; font-size:12px; }
     .tool-section { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,420px); gap:28px; padding:42px 0; border-top:1px solid var(--line); }
     .eyebrow { color:var(--accent); font-size:12px; text-transform:uppercase; letter-spacing:.08em; font-weight:800; }
     .tool-section h2 { font-family:Georgia, "Times New Roman", serif; font-size:36px; margin:10px 0 12px; }
@@ -44,7 +53,7 @@
     .ending { border-top:1px solid var(--line); padding:34px 0 60px; font-size:19px; line-height:1.8; color:#35443f; }
     @media (max-width:860px) {
       .page { padding:18px; }
-      .hero, .tool-section, .intro, .grid-two { grid-template-columns:1fr; }
+      .hero, .tool-section, .intro, .grid-two, .update-grid { grid-template-columns:1fr; }
       .hero { padding-top:32px; }
       .tool-section h2 { font-size:30px; }
     }
@@ -57,7 +66,7 @@
       <div>
         <div class="eyebrow">今日图文文章</div>
         <h1>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</h1>
-        <p>AI 工具正在从“能聊天”走向“能帮你处理一段完整工作”。今天这 5 个项目分别指向工具调用、技能包、个人知识库、自动化模板和长期型 AI 助手。</p>
+        <p>今天精选 5 个项目，覆盖Agent 工具接入、Skill 工作流、知识库增强、自动化模板。重点不是热度，而是它们能否解决真实任务。</p>
         <div class="meta">
           <span class="pill">5 个新工具</span>
           <span class="pill">大白话解释</span>
@@ -75,13 +84,31 @@
       <div class="note"><strong>为什么值得看：</strong>这些项目共同指向一个变化：AI 不再只是回答问题，而是开始接入工具、记住资料、拆解任务，帮人处理更完整的工作。</div>
       <div class="note"><strong>怎么判断好不好用：</strong>别只看热度。更重要的是它能不能解决一个真实问题、配置成本高不高、普通人有没有清晰的使用入口。</div>
     </section>
+    <section class="model-updates" id="model-updates">
+      <div class="section-heading"><div class="eyebrow">模型观察</div><h2>前沿模型动态</h2></div>
+      <div class="update-grid"><article class="update-card">
+          <div class="update-meta">OpenAI · ChatGPT · 2026-06-18</div>
+          <h3>OpenAI 改进 ChatGPT 的健康信息能力</h3>
+          <p><strong>发生了什么：</strong>OpenAI 发布了针对 ChatGPT 健康信息理解与回答能力的改进。</p>
+          <p><strong>为什么重要：</strong>健康问题对准确性和表达边界要求较高，这类改进会直接影响用户获取信息时的可靠体验。</p>
+          <p><strong>谁该关注：</strong>适合关注健康信息服务、智能问答和高风险内容质量的产品与研发团队。</p>
+          <a href="https://openai.com/index/improving-health-intelligence-in-chatgpt/" target="_blank" rel="noopener">查看官方来源</a>
+        </article> <article class="update-card">
+          <div class="update-meta">OpenAI · 模型部署模拟 · 2026-06-16</div>
+          <h3>OpenAI 研究在发布前预测模型行为</h3>
+          <p><strong>发生了什么：</strong>OpenAI 介绍了通过模拟真实部署环境，在模型发布前预测其行为的方法。</p>
+          <p><strong>为什么重要：</strong>如果能更早发现异常行为和潜在风险，模型评估就能从发布后的补救前移到发布前验证。</p>
+          <p><strong>谁该关注：</strong>适合负责模型评估、安全测试、Agent 上线和风险治理的团队关注。</p>
+          <a href="https://openai.com/index/deployment-simulation/" target="_blank" rel="noopener">查看官方来源</a>
+        </article></div>
+    </section>
     <article>
       <section class="tool-section" id="tool-1">
         <div class="tool-copy">
           <div class="eyebrow">Agent 工具接入 / 第 1 个工具</div>
-          <h2>把 AI 聊天助手变成能执行任务的工作台</h2>
+          <h2>CowAgent</h2>
           <p class="repo-name">zhayujie/CowAgent</p>
-          <p class="plain">CowAgent 的核心价值不是再做一个聊天窗口，而是让 AI 助手可以规划任务、调用工具、接入外部能力。你可以把它理解成一个“会动手的 AI 助理底座”：它不只回答你，还试图把一个复杂需求拆成步骤去完成。</p>
+          <p class="plain">zhayujie/CowAgent 像是给 AI Agent 接工具的插线板，让模型能通过 MCP 调用外部能力。</p>
           <div class="evidence">
             <h3>公开信息依据</h3>
             <p><strong>原项目怎么说：</strong>Open-source super AI assistant &amp; Agent Harness. Plans tasks, runs tools and skills, self-evolves with memory and knowledge. Multi-model, multi-channel. Lightweight, extensible, one-line install. (formerly chatgpt-on-wechat)</p>
@@ -89,19 +116,19 @@
           </div>
           <div class="story-block">
             <h3>它适合什么场景</h3>
-            <p>如果你经常让 AI 帮你写代码、查资料、整理内容，却还要自己来回复制结果、切工具、补上下文，这类 Agent Harness 就有意义。它适合放在“让 AI 参与一整段工作流程”的场景里，而不是只拿来问答。</p>
+            <p>需要构建、评估或编排 AI Agent 工作流时使用。</p>
           </div>
           <div class="grid-two">
             <div>
               <h3>值得关注的地方</h3>
-              <p>优点是方向很清楚：任务规划、工具调用、记忆和多模型协作都围绕“让 AI 真正干活”展开。它也有较高关注度，说明这条路线正在被大量开发者验证。</p>
+              <p>接工具的方向明确，和 Agent 工作流、Codex 扩展很容易产生连接。</p>
             </div>
             <div>
               <h3>先别忽略的问题</h3>
-              <p>问题也明显：这类工具通常配置链路较长，真正落地时会遇到模型、工具权限、上下文和稳定性问题。普通用户不一定适合马上上手，开发者和自动化玩家更适合先试。</p>
+              <p>Agent 工具通常配置链路较长，需要先验证本机能不能稳定跑起来。</p>
             </div>
           </div>
-          <p class="verdict"><strong>我的判断：</strong>这是今天最值得深挖的项目之一，但它更像“高级玩家工具箱”，不是开箱即用的效率神器。</p>
+          <p class="verdict"><strong>我的判断：</strong>接工具的方向明确，和 Agent 工作流、Codex 扩展很容易产生连接；但要先确认：Agent 工具通常配置链路较长，需要先验证本机能不能稳定跑起来。</p>
           <a class="source-link" href="https://github.com/zhayujie/CowAgent" target="_blank" rel="noopener">查看 GitHub 来源</a>
         </div>
         <figure class="tool-visual"><img src="../assets/2026-06-20/2026-06-20-zhayujie__cowagent.png" alt="zhayujie/CowAgent 配图" loading="lazy"></figure>
@@ -131,7 +158,7 @@
               <p>现成 Skill 包不一定适合你的工作流，需要筛掉口号多、步骤虚的内容。</p>
             </div>
           </div>
-          <p class="verdict"><strong>我的判断：</strong>可以先收藏观察，再用一个小任务验证它是否真的适合自己的工作。</p>
+          <p class="verdict"><strong>我的判断：</strong>离 Skill 化很近，里面的方法、模板或流程通常可以直接拆出来复用；但要先确认：现成 Skill 包不一定适合你的工作流，需要筛掉口号多、步骤虚的内容。</p>
           <a class="source-link" href="https://github.com/zhnt/loushang" target="_blank" rel="noopener">查看 GitHub 来源</a>
         </div>
         <figure class="tool-visual"><img src="../assets/2026-06-20/2026-06-20-zhnt__loushang.png" alt="zhnt/loushang 配图" loading="lazy"></figure>
@@ -139,9 +166,9 @@
 <section class="tool-section" id="tool-3">
         <div class="tool-copy">
           <div class="eyebrow">知识库增强 / 第 3 个工具</div>
-          <h2>把你的资料变成可以对话的私人知识库</h2>
+          <h2>khoj</h2>
           <p class="repo-name">khoj-ai/khoj</p>
-          <p class="plain">Khoj 更接近大众能理解的 AI 工具：把笔记、文档、网页资料接进 AI，让你可以像问人一样询问自己的资料。它面向的不是单次聊天，而是长期积累的信息。</p>
+          <p class="plain">khoj-ai/khoj 是想把 AI 能力塞进 Obsidian，让笔记、资料整理和知识库维护少一点手工活。</p>
           <div class="evidence">
             <h3>公开信息依据</h3>
             <p><strong>原项目怎么说：</strong>Your AI second brain. Self-hostable. Get answers from the web or your docs. Build custom agents, schedule automations, do deep research. Turn any online or local LLM into your personal, autonomous AI (gpt, claude, gemini, llama, qwen, mistral). Get started - free.</p>
@@ -149,29 +176,29 @@
           </div>
           <div class="story-block">
             <h3>它适合什么场景</h3>
-            <p>如果你有大量 Obsidian 笔记、研究资料、项目文档或网页收藏，最大痛点往往不是没保存，而是事后找不到、串不起来。Khoj 这类工具的目标就是帮你把资料重新变成可检索、可追问、可复用的知识。</p>
+            <p>需要构建、评估或编排 AI Agent 工作流时使用。</p>
           </div>
           <div class="grid-two">
             <div>
               <h3>值得关注的地方</h3>
-              <p>优点是使用场景很清晰，和个人知识管理、研究写作、项目复盘都能直接连接。相比纯 Agent 工具，它更容易让普通用户理解“我为什么需要它”。</p>
+              <p>能直接回流到知识库场景，不只是停留在代码工具层面。</p>
             </div>
             <div>
               <h3>先别忽略的问题</h3>
-              <p>难点在于知识库工具很吃个人资料结构。如果你的笔记本身混乱、来源不清、命名随意，AI 也很难给出可靠答案。它不是魔法整理器，前期仍需要资料质量。</p>
+              <p>Obsidian 插件或流程容易和个人库结构绑定，迁移前要先小范围试用。</p>
             </div>
           </div>
-          <p class="verdict"><strong>我的判断：</strong>这是最适合普通读者关注的项目。它不一定最炫，但最容易转化成真实生产力。</p>
+          <p class="verdict"><strong>我的判断：</strong>能直接回流到知识库场景，不只是停留在代码工具层面；但要先确认：Obsidian 插件或流程容易和个人库结构绑定，迁移前要先小范围试用。</p>
           <a class="source-link" href="https://github.com/khoj-ai/khoj" target="_blank" rel="noopener">查看 GitHub 来源</a>
         </div>
         <figure class="tool-visual"><img src="../assets/2026-06-20/2026-06-20-khoj-ai__khoj.png" alt="khoj-ai/khoj 配图" loading="lazy"></figure>
       </section>
 <section class="tool-section" id="tool-4">
         <div class="tool-copy">
-          <div class="eyebrow">RAG 与自动化 / 第 4 个工具</div>
-          <h2>把常见自动化流程做成可直接参考的模板库</h2>
+          <div class="eyebrow">自动化模板 / 第 4 个工具</div>
+          <h2>awesome-n8n-templates</h2>
           <p class="repo-name">enescingoz/awesome-n8n-templates</p>
-          <p class="plain">这个项目收集了大量 n8n 自动化模板，覆盖邮件、聊天工具、网盘、Notion、OpenAI、文档处理和社交媒体等场景。它的价值不在“发明新技术”，而在把别人已经跑通的流程摆在你面前。</p>
+          <p class="plain">enescingoz/awesome-n8n-templates 是一套可导入的自动化工作流模板，适合从现成案例开始搭建 n8n 流程。</p>
           <div class="evidence">
             <h3>公开信息依据</h3>
             <p><strong>原项目怎么说：</strong>280+ free n8n automation templates — ready-to-use workflows for Gmail, Telegram, Slack, Discord, WhatsApp, Google Drive, Notion, OpenAI, and more. AI agents, RAG chatbots, email automation, social media, DevOps, and document processing. The largest open-source n8n template collection.</p>
@@ -179,19 +206,19 @@
           </div>
           <div class="story-block">
             <h3>它适合什么场景</h3>
-            <p>当你想做一个自动化流程，比如收到邮件后让 AI 总结、把文件同步到资料库、定时生成内容草稿，最难的往往不是写代码，而是不知道流程该怎么搭。模板库能让你从已有案例改起。</p>
+            <p>需要把现成 JSON 工作流导入 n8n，再按自己的账号和凭据调整时使用。</p>
           </div>
           <div class="grid-two">
             <div>
               <h3>值得关注的地方</h3>
-              <p>优点是非常实用，尤其适合运营、内容团队、独立开发者和不想从零搭流程的人。它把“AI 自动化”从抽象概念变成了一个个能参考的工作流。</p>
+              <p>模板覆盖常见集成和自动化场景，能减少从空白工作流开始试错的时间。</p>
             </div>
             <div>
               <h3>先别忽略的问题</h3>
-              <p>问题是模板越多，质量越参差。很多流程换到你自己的账号、权限和数据结构后还要重配；另外还要注意第三方服务的隐私和费用。</p>
+              <p>模板导入后仍要重配凭据、权限和数据字段，不能把示例直接当成稳定生产流程。</p>
             </div>
           </div>
-          <p class="verdict"><strong>我的判断：</strong>这是最容易马上产生效果的项目。适合拿来找灵感、拆流程，但别期待一键复制就能稳定运行。</p>
+          <p class="verdict"><strong>我的判断：</strong>模板覆盖常见集成和自动化场景，能减少从空白工作流开始试错的时间；但要先确认：模板导入后仍要重配凭据、权限和数据字段，不能把示例直接当成稳定生产流程。</p>
           <a class="source-link" href="https://github.com/enescingoz/awesome-n8n-templates" target="_blank" rel="noopener">查看 GitHub 来源</a>
         </div>
         <figure class="tool-visual"><img src="../assets/2026-06-20/2026-06-20-enescingoz__awesome-n8n-templates.png" alt="enescingoz/awesome-n8n-templates 配图" loading="lazy"></figure>
@@ -199,9 +226,9 @@
 <section class="tool-section" id="tool-5">
         <div class="tool-copy">
           <div class="eyebrow">Agent 工作流 / 第 5 个工具</div>
-          <h2>一个想跟着用户一起成长的 AI Agent</h2>
+          <h2>hermes-agent</h2>
           <p class="repo-name">NousResearch/hermes-agent</p>
-          <p class="plain">Hermes Agent 的定位更像“长期型 AI 助手”：它强调会随着你使用而成长。相比一次性问答，它更关注长期任务、个人偏好、工具协作和持续记忆。</p>
+          <p class="plain">NousResearch/hermes-agent 是把一个 AI 助手升级成一套会分工、会调用工具的自动化工作流。</p>
           <div class="evidence">
             <h3>公开信息依据</h3>
             <p><strong>原项目怎么说：</strong>The agent that grows with you</p>
@@ -209,19 +236,19 @@
           </div>
           <div class="story-block">
             <h3>它适合什么场景</h3>
-            <p>如果未来你希望 AI 不是临时帮你答一句，而是慢慢熟悉你的项目、习惯和工作方式，这类 Agent 就是一个方向。它适合观察“个人 AI 助手”会如何从聊天产品演化成工作伙伴。</p>
+            <p>需要构建、评估或编排 AI Agent 工作流时使用。</p>
           </div>
           <div class="grid-two">
             <div>
               <h3>值得关注的地方</h3>
-              <p>优点是想象空间很大：长期记忆、个性化、工具调用和任务执行一旦结合好，会明显改变人机协作方式。</p>
+              <p>方向贴近 AI 工具链，适合作为新工具或新流程的观察对象。</p>
             </div>
             <div>
               <h3>先别忽略的问题</h3>
-              <p>但这个方向也最容易被高预期绑架。真正好用的长期 Agent 很难做，因为它需要稳定记忆、可控权限、可靠执行和清晰反馈；任何一环出问题都会影响信任。</p>
+              <p>Agent 工具通常配置链路较长，需要先验证本机能不能稳定跑起来。</p>
             </div>
           </div>
-          <p class="verdict"><strong>我的判断：</strong>它代表了一个重要趋势，但短期更适合观察和技术验证，不适合作为普通用户的第一选择。</p>
+          <p class="verdict"><strong>我的判断：</strong>方向贴近 AI 工具链，适合作为新工具或新流程的观察对象；但要先确认：Agent 工具通常配置链路较长，需要先验证本机能不能稳定跑起来。</p>
           <a class="source-link" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">查看 GitHub 来源</a>
         </div>
         <figure class="tool-visual"><img src="../assets/2026-06-20/2026-06-20-nousresearch__hermes-agent.png" alt="NousResearch/hermes-agent 配图" loading="lazy"></figure>
