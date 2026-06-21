@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</title>
+  <style>
+    :root {
+      --ink:#16201d; --muted:#5f6f68; --paper:#f7f2ea; --panel:#fffaf2;
+      --line:#dacfc0; --accent:#b85c3b; --green:#2f6f61; --dark:#111b18;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--paper); color:var(--ink); }
+    a { color:inherit; }
+    .page { max-width:1180px; margin:0 auto; padding:28px; }
+    .topbar { display:flex; justify-content:space-between; gap:18px; align-items:center; font-size:13px; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:14px; }
+    .brand { font-weight:800; color:var(--accent); letter-spacing:.08em; text-transform:uppercase; }
+    .hero { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr); gap:34px; align-items:end; padding:54px 0 34px; }
+    .hero h1 { font-family:Georgia, "Times New Roman", serif; font-size:clamp(40px,6vw,76px); line-height:.96; letter-spacing:0; margin:14px 0 18px; }
+    .hero p { font-size:18px; line-height:1.75; color:#485650; max-width:760px; }
+    .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+    .pill { border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:rgba(255,250,242,.7); color:#4a5852; font-size:13px; }
+    .hero-visual { margin:0; border-radius:10px; overflow:hidden; background:var(--dark); box-shadow:0 18px 60px rgba(48,34,22,.18); }
+    .hero-visual img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
+    .toc { position:sticky; top:0; z-index:2; display:flex; gap:8px; overflow:auto; padding:14px 0; background:linear-gradient(var(--paper) 72%, rgba(247,242,234,.8)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .toc a { white-space:nowrap; text-decoration:none; color:#35423d; border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:var(--panel); font-size:13px; }
+    .intro { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:32px 0; }
+    .note { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:20px; line-height:1.7; color:#40504a; }
+    .model-updates { padding:34px 0 20px; border-top:1px solid var(--line); }
+    .section-heading { display:flex; align-items:end; justify-content:space-between; gap:18px; margin-bottom:18px; }
+    .section-heading h2 { font-family:Georgia, "Times New Roman", serif; font-size:38px; margin:0; }
+    .update-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .update-card, .empty-update { background:var(--dark); color:#eef3ef; border-radius:9px; padding:20px; line-height:1.7; }
+    .update-card h3 { font-size:20px; line-height:1.35; margin:10px 0 14px; }
+    .update-card p { color:#cbd6d0; }
+    .update-card a { color:#f1b092; }
+    .update-meta { color:#95b5aa; font-size:12px; }
+    .tool-section { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,420px); gap:28px; padding:42px 0; border-top:1px solid var(--line); }
+    .eyebrow { color:var(--accent); font-size:12px; text-transform:uppercase; letter-spacing:.08em; font-weight:800; }
+    .tool-section h2 { font-family:Georgia, "Times New Roman", serif; font-size:36px; margin:10px 0 12px; }
+    .repo-name { margin:-4px 0 18px; color:var(--muted); font-size:14px; }
+    .plain { font-size:18px; line-height:1.7; color:#33423d; }
+    .evidence { background:rgba(255,250,242,.78); border-left:4px solid var(--green); padding:16px 18px; margin:20px 0; line-height:1.65; }
+    h3 { margin:0 0 10px; font-size:15px; }
+    .grid-two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .grid-two > div, .story-block { background:rgba(255,250,242,.56); border:1px solid rgba(218,207,192,.8); border-radius:8px; padding:16px; line-height:1.75; color:#40504a; }
+    .grid-two p, .story-block p { margin:0; }
+    .verdict { margin:18px 0 0; padding:16px 18px; border-radius:8px; background:#e8efe9; color:#253b33; line-height:1.75; }
+    ul { padding-left:18px; line-height:1.7; color:#485650; }
+    .source-link { display:inline-block; margin-top:12px; text-decoration:none; color:white; background:var(--dark); padding:10px 14px; border-radius:6px; }
+    .tool-visual { margin:0; border-radius:10px; overflow:hidden; align-self:start; background:#18221f; box-shadow:0 14px 40px rgba(48,34,22,.16); }
+    .tool-visual img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
+    .ending { border-top:1px solid var(--line); padding:34px 0 60px; font-size:19px; line-height:1.8; color:#35443f; }
+    @media (max-width:860px) {
+      .page { padding:18px; }
+      .hero, .tool-section, .intro, .grid-two, .update-grid { grid-template-columns:1fr; }
+      .hero { padding-top:32px; }
+      .tool-section h2 { font-size:30px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar"><div class="brand">AI Tool Brief</div><div>2026-06-21 / 今日观察</div></header>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">今日图文文章</div>
+        <h1>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</h1>
+        <p>今天精选 5 个项目，覆盖Agent 工具接入、Skill 工作流、知识库增强、自动化模板。重点不是热度，而是它们能否解决真实任务。</p>
+        <div class="meta">
+          <span class="pill">5 个新工具</span>
+          <span class="pill">大白话解释</span>
+          <span class="pill">优缺点判断</span>
+        </div>
+      </div>
+      <figure class="hero-visual"><img src="../assets/2026-06-21/2026-06-21-zhayujie__cowagent.png" alt="文章主视觉"></figure>
+    </section>
+    <nav class="toc"><a href="#tool-1">1. zhayujie/CowAgent</a>
+<a href="#tool-2">2. zhnt/loushang</a>
+<a href="#tool-3">3. khoj-ai/khoj</a>
+<a href="#tool-4">4. enescingoz/awesome-n8n-templates</a>
+<a href="#tool-5">5. NousResearch/hermes-agent</a></nav>
+    <section class="intro">
+      <div class="note"><strong>为什么值得看：</strong>这些项目共同指向一个变化：AI 不再只是回答问题，而是开始接入工具、记住资料、拆解任务，帮人处理更完整的工作。</div>
+      <div class="note"><strong>怎么判断好不好用：</strong>别只看热度。更重要的是它能不能解决一个真实问题、配置成本高不高、普通人有没有清晰的使用入口。</div>
+    </section>
+    <section class="model-updates" id="model-updates">
+      <div class="section-heading"><div class="eyebrow">模型观察</div><h2>前沿模型动态</h2></div>
+      <div class="empty-update">今日未发现可核验的新动态。</div>
+    </section>
+    <article>
+      <section class="tool-section" id="tool-1">
+        <div class="tool-copy">
+          <div class="eyebrow">Agent 工具接入 / 第 1 个工具</div>
+          <h2>CowAgent</h2>
+          <p class="repo-name">zhayujie/CowAgent</p>
+          <p class="plain">zhayujie/CowAgent 像是给 AI Agent 接工具的插线板，让模型能通过 MCP 调用外部能力。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>原项目怎么说：</strong>Open-source super AI assistant &amp; Agent Harness. Plans tasks, runs tools and skills, self-evolves with memory and knowledge. Multi-model, multi-channel. Lightweight, extensible, one-line install. (formerly chatgpt-on-wechat)</p>
+<p><strong>主题线索：</strong>GitHub topics: ai, ai-agent, ai-agents, chatgpt-on-wechat, claude, claude-code, codex, cowagent</p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>需要构建、评估或编排 AI Agent 工作流时使用。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>接工具的方向明确，和 Agent 工作流、Codex 扩展很容易产生连接。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>Agent 工具通常配置链路较长，需要先验证本机能不能稳定跑起来。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>接工具的方向明确，和 Agent 工作流、Codex 扩展很容易产生连接；但要先确认：Agent 工具通常配置链路较长，需要先验证本机能不能稳定跑起来。</p>
+          <a class="source-link" href="https://github.com/zhayujie/CowAgent" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-zhayujie__cowagent.png" alt="zhayujie/CowAgent 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-2">
+        <div class="tool-copy">
+          <div class="eyebrow">Skill 工作流 / 第 2 个工具</div>
+          <h2>loushang</h2>
+          <p class="repo-name">zhnt/loushang</p>
+          <p class="plain">zhnt/loushang 更像一包现成技能，把别人整理好的流程和方法直接装给 AI 助手用。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>原项目怎么说：</strong>AI-native agent harness for coding workflows by python: multi-model LLM orchestration, stateful sessions, tool governance, traceable delivery, and provider routing for GPT, Claude, DeepSeek, Qwen, Kimi, GLM, and MiniMax.</p>
+<p><strong>主题线索：</strong>GitHub topics: agent, agent-harness, agentic, ai, chatgpt, claude, claude-code, codex</p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>需要构建、评估或编排 AI Agent 工作流时使用。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>离 Skill 化很近，里面的方法、模板或流程通常可以直接拆出来复用。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>现成 Skill 包不一定适合你的工作流，需要筛掉口号多、步骤虚的内容。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>离 Skill 化很近，里面的方法、模板或流程通常可以直接拆出来复用；但要先确认：现成 Skill 包不一定适合你的工作流，需要筛掉口号多、步骤虚的内容。</p>
+          <a class="source-link" href="https://github.com/zhnt/loushang" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-zhnt__loushang.png" alt="zhnt/loushang 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-3">
+        <div class="tool-copy">
+          <div class="eyebrow">知识库增强 / 第 3 个工具</div>
+          <h2>khoj</h2>
+          <p class="repo-name">khoj-ai/khoj</p>
+          <p class="plain">khoj-ai/khoj 是想把 AI 能力塞进 Obsidian，让笔记、资料整理和知识库维护少一点手工活。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>原项目怎么说：</strong>Your AI second brain. Self-hostable. Get answers from the web or your docs. Build custom agents, schedule automations, do deep research. Turn any online or local LLM into your personal, autonomous AI (gpt, claude, gemini, llama, qwen, mistral). Get started - free.</p>
+<p><strong>主题线索：</strong>GitHub topics: agent, ai, assistant, chat, chatgpt, emacs, image-generation, llama3</p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>需要构建、评估或编排 AI Agent 工作流时使用。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>能直接回流到知识库场景，不只是停留在代码工具层面。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>Obsidian 插件或流程容易和个人库结构绑定，迁移前要先小范围试用。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>能直接回流到知识库场景，不只是停留在代码工具层面；但要先确认：Obsidian 插件或流程容易和个人库结构绑定，迁移前要先小范围试用。</p>
+          <a class="source-link" href="https://github.com/khoj-ai/khoj" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-khoj-ai__khoj.png" alt="khoj-ai/khoj 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-4">
+        <div class="tool-copy">
+          <div class="eyebrow">自动化模板 / 第 4 个工具</div>
+          <h2>awesome-n8n-templates</h2>
+          <p class="repo-name">enescingoz/awesome-n8n-templates</p>
+          <p class="plain">enescingoz/awesome-n8n-templates 是一套可导入的自动化工作流模板，适合从现成案例开始搭建 n8n 流程。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>原项目怎么说：</strong>280+ free n8n automation templates — ready-to-use workflows for Gmail, Telegram, Slack, Discord, WhatsApp, Google Drive, Notion, OpenAI, and more. AI agents, RAG chatbots, email automation, social media, DevOps, and document processing. The largest open-source n8n template collection.</p>
+<p><strong>主题线索：</strong>GitHub topics: ai-agents, ai-automation, automation, automation-templates, awesome, awesome-list, integration, low-code</p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>需要把现成 JSON 工作流导入 n8n，再按自己的账号和凭据调整时使用。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>模板覆盖常见集成和自动化场景，能减少从空白工作流开始试错的时间。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>模板导入后仍要重配凭据、权限和数据字段，不能把示例直接当成稳定生产流程。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>模板覆盖常见集成和自动化场景，能减少从空白工作流开始试错的时间；但要先确认：模板导入后仍要重配凭据、权限和数据字段，不能把示例直接当成稳定生产流程。</p>
+          <a class="source-link" href="https://github.com/enescingoz/awesome-n8n-templates" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-enescingoz__awesome-n8n-templates.png" alt="enescingoz/awesome-n8n-templates 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-5">
+        <div class="tool-copy">
+          <div class="eyebrow">Agent 工作流 / 第 5 个工具</div>
+          <h2>hermes-agent</h2>
+          <p class="repo-name">NousResearch/hermes-agent</p>
+          <p class="plain">NousResearch/hermes-agent 是把一个 AI 助手升级成一套会分工、会调用工具的自动化工作流。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>原项目怎么说：</strong>The agent that grows with you</p>
+<p><strong>主题线索：</strong>GitHub topics: ai, ai-agent, ai-agents, anthropic, chatgpt, claude, claude-code, clawdbot</p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>需要构建、评估或编排 AI Agent 工作流时使用。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>方向贴近 AI 工具链，适合作为新工具或新流程的观察对象。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>Agent 工具通常配置链路较长，需要先验证本机能不能稳定跑起来。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>方向贴近 AI 工具链，适合作为新工具或新流程的观察对象；但要先确认：Agent 工具通常配置链路较长，需要先验证本机能不能稳定跑起来。</p>
+          <a class="source-link" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-nousresearch__hermes-agent.png" alt="NousResearch/hermes-agent 配图" loading="lazy"></figure>
+      </section>
+    </article>
+    <section class="ending">
+      <strong>结论：</strong>今天这 5 个项目并不是同一种工具：zhayujie/CowAgent、zhnt/loushang、khoj-ai/khoj、enescingoz/awesome-n8n-templates、NousResearch/hermes-agent。它们分别切入工具调用、知识管理、自动化和长期协作等任务。真正值得关注的不是哪个项目最火，而是它能否解决真实问题，并在配置成本、稳定性和使用边界上经得起验证。
+    </section>
+  </main>
+</body>
+</html>
