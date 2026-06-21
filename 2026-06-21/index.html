@@ -66,20 +66,20 @@
       <div>
         <div class="eyebrow">今日图文文章</div>
         <h1>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</h1>
-        <p>今天精选 5 个项目，覆盖Agent 工具接入、Skill 工作流、知识库增强、自动化模板。重点不是热度，而是它们能否解决真实任务。</p>
+        <p>今天精选 5 个项目，覆盖知识库增强、Agent 工作流、Agent 工具接入、Skill 工作流。重点不是热度，而是它们能否解决真实任务。</p>
         <div class="meta">
           <span class="pill">5 个新工具</span>
           <span class="pill">大白话解释</span>
           <span class="pill">优缺点判断</span>
         </div>
       </div>
-      <figure class="hero-visual"><img src="../assets/2026-06-21/2026-06-21-zhayujie__cowagent.png" alt="文章主视觉"></figure>
+      <figure class="hero-visual"><img src="../assets/2026-06-21/2026-06-21-pssah4__vault-operator.png" alt="文章主视觉"></figure>
     </section>
-    <nav class="toc"><a href="#tool-1">1. zhayujie/CowAgent</a>
-<a href="#tool-2">2. zhnt/loushang</a>
-<a href="#tool-3">3. khoj-ai/khoj</a>
-<a href="#tool-4">4. enescingoz/awesome-n8n-templates</a>
-<a href="#tool-5">5. NousResearch/hermes-agent</a></nav>
+    <nav class="toc"><a href="#tool-1">1. pssah4/vault-operator</a>
+<a href="#tool-2">2. marcusquinn/aidevops</a>
+<a href="#tool-3">3. jeremylongshore/claude-code-plugins-plus-skills</a>
+<a href="#tool-4">4. CherryHQ/cherry-studio</a>
+<a href="#tool-5">5. escoffier-labs/brigade</a></nav>
     <section class="intro">
       <div class="note"><strong>为什么值得看：</strong>这些项目共同指向一个变化：AI 不再只是回答问题，而是开始接入工具、记住资料、拆解任务，帮人处理更完整的工作。</div>
       <div class="note"><strong>怎么判断好不好用：</strong>别只看热度。更重要的是它能不能解决一个真实问题、配置成本高不高、普通人有没有清晰的使用入口。</div>
@@ -91,157 +91,152 @@
     <article>
       <section class="tool-section" id="tool-1">
         <div class="tool-copy">
-          <div class="eyebrow">Agent 工具接入 / 第 1 个工具</div>
-          <h2>CowAgent</h2>
-          <p class="repo-name">zhayujie/CowAgent</p>
-          <p class="plain">zhayujie/CowAgent 像是给 AI Agent 接工具的插线板，让模型能通过 MCP 调用外部能力。</p>
+          <div class="eyebrow">知识库增强 / 第 1 个工具</div>
+          <h2>vault-operator</h2>
+          <p class="repo-name">pssah4/vault-operator</p>
+          <p class="plain">Obsidian 里积累了很多笔记后，普通聊天助手仍然不了解库内上下文，整理和调用知识需要反复复制内容。它把 AI Agent 放进 Obsidian 仓库内运行，让 Agent 结合库内记忆、插件、Skills 和外部工具处理任务，并提供 BYOK、MCP 与安全控制。</p>
           <div class="evidence">
             <h3>公开信息依据</h3>
-            <p><strong>原项目怎么说：</strong>Open-source super AI assistant &amp; Agent Harness. Plans tasks, runs tools and skills, self-evolves with memory and knowledge. Multi-model, multi-channel. Lightweight, extensible, one-line install. (formerly chatgpt-on-wechat)</p>
-<p><strong>主题线索：</strong>GitHub topics: ai, ai-agent, ai-agents, chatgpt-on-wechat, claude, claude-code, codex, cowagent</p>
+            <p><strong>核验证据：</strong><a href="https://github.com/pssah4/vault-operator" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/pssah4/vault-operator/releases/tag/2.14.10" target="_blank" rel="noopener">证据 2</a></p>
           </div>
           <div class="story-block">
             <h3>它适合什么场景</h3>
-            <p>需要构建、评估或编排 AI Agent 工作流时使用。</p>
+            <p>研究者可以让它基于现有笔记梳理某个主题，再把结果接回自己的知识管理流程，而不必先把整批笔记搬到聊天窗口。</p>
           </div>
           <div class="grid-two">
             <div>
               <h3>值得关注的地方</h3>
-              <p>接工具的方向明确，和 Agent 工作流、Codex 扩展很容易产生连接。</p>
+              <p>项目在今天发布了 2.14.10，时间证据明确；候选资料没有说明该版本的具体改动，因此只能确认版本更新，不能推断新增功能。</p>
             </div>
             <div>
               <h3>先别忽略的问题</h3>
-              <p>Agent 工具通常配置链路较长，需要先验证本机能不能稳定跑起来。</p>
+              <p>Agent 能接触知识库和工具，权限边界比普通问答更敏感；使用前需要核对安全控制、模型密钥配置和写入行为。</p>
             </div>
           </div>
-          <p class="verdict"><strong>我的判断：</strong>接工具的方向明确，和 Agent 工作流、Codex 扩展很容易产生连接；但要先确认：Agent 工具通常配置链路较长，需要先验证本机能不能稳定跑起来。</p>
-          <a class="source-link" href="https://github.com/zhayujie/CowAgent" target="_blank" rel="noopener">查看 GitHub 来源</a>
+          <p class="verdict"><strong>我的判断：</strong>适合已经深度使用 Obsidian、愿意管理模型与工具权限的人试验；只想简单问答的用户暂时不必引入这套复杂度。</p>
+          <a class="source-link" href="https://github.com/pssah4/vault-operator" target="_blank" rel="noopener">查看 GitHub 来源</a>
         </div>
-        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-zhayujie__cowagent.png" alt="zhayujie/CowAgent 配图" loading="lazy"></figure>
+        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-pssah4__vault-operator.png" alt="pssah4/vault-operator 配图" loading="lazy"></figure>
       </section>
 <section class="tool-section" id="tool-2">
         <div class="tool-copy">
-          <div class="eyebrow">Skill 工作流 / 第 2 个工具</div>
-          <h2>loushang</h2>
-          <p class="repo-name">zhnt/loushang</p>
-          <p class="plain">zhnt/loushang 更像一包现成技能，把别人整理好的流程和方法直接装给 AI 助手用。</p>
+          <div class="eyebrow">Agent 工作流 / 第 2 个工具</div>
+          <h2>aidevops</h2>
+          <p class="repo-name">marcusquinn/aidevops</p>
+          <p class="plain">AI 可以快速写出应用代码，但部署、权限、仓库维护和持续运行仍需要一套长期运转的工程流程。它通过 CLI 安装和更新一组面向 OpenCode 与 Git 的 Agents，并把这些 Agents 部署到本地目录，形成带工具和约定的 DevOps 自动化栈。</p>
           <div class="evidence">
             <h3>公开信息依据</h3>
-            <p><strong>原项目怎么说：</strong>AI-native agent harness for coding workflows by python: multi-model LLM orchestration, stateful sessions, tool governance, traceable delivery, and provider routing for GPT, Claude, DeepSeek, Qwen, Kimi, GLM, and MiniMax.</p>
-<p><strong>主题线索：</strong>GitHub topics: agent, agent-harness, agentic, ai, chatgpt, claude, claude-code, codex</p>
+            <p><strong>核验证据：</strong><a href="https://github.com/marcusquinn/aidevops" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/marcusquinn/aidevops/releases/tag/v3.21.9" target="_blank" rel="noopener">证据 2</a></p>
           </div>
           <div class="story-block">
             <h3>它适合什么场景</h3>
-            <p>需要构建、评估或编排 AI Agent 工作流时使用。</p>
+            <p>开发者全局安装 aidevops 后执行 update，把 Agents 部署到本机，再针对自己的仓库调用相应流程处理维护任务。</p>
           </div>
           <div class="grid-two">
             <div>
               <h3>值得关注的地方</h3>
-              <p>离 Skill 化很近，里面的方法、模板或流程通常可以直接拆出来复用。</p>
+              <p>项目今天发布 v3.21.9，并在同日继续提交代码；这能证明项目正在迭代，但候选证据不足以说明本版本修复了哪些具体问题。</p>
             </div>
             <div>
               <h3>先别忽略的问题</h3>
-              <p>现成 Skill 包不一定适合你的工作流，需要筛掉口号多、步骤虚的内容。</p>
+              <p>这是一套有明确偏好的工具栈，不是中立组件；接入前应检查它会执行哪些命令、读取哪些仓库信息以及是否符合现有安全规范。</p>
             </div>
           </div>
-          <p class="verdict"><strong>我的判断：</strong>离 Skill 化很近，里面的方法、模板或流程通常可以直接拆出来复用；但要先确认：现成 Skill 包不一定适合你的工作流，需要筛掉口号多、步骤虚的内容。</p>
-          <a class="source-link" href="https://github.com/zhnt/loushang" target="_blank" rel="noopener">查看 GitHub 来源</a>
+          <p class="verdict"><strong>我的判断：</strong>适合愿意审查自动化脚本、希望把 AI 编码延伸到仓库运维的开发者；对命令权限缺乏控制的环境不宜直接启用。</p>
+          <a class="source-link" href="https://github.com/marcusquinn/aidevops" target="_blank" rel="noopener">查看 GitHub 来源</a>
         </div>
-        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-zhnt__loushang.png" alt="zhnt/loushang 配图" loading="lazy"></figure>
+        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-marcusquinn__aidevops.png" alt="marcusquinn/aidevops 配图" loading="lazy"></figure>
       </section>
 <section class="tool-section" id="tool-3">
         <div class="tool-copy">
-          <div class="eyebrow">知识库增强 / 第 3 个工具</div>
-          <h2>khoj</h2>
-          <p class="repo-name">khoj-ai/khoj</p>
-          <p class="plain">khoj-ai/khoj 是想把 AI 能力塞进 Obsidian，让笔记、资料整理和知识库维护少一点手工活。</p>
+          <div class="eyebrow">Agent 工具接入 / 第 3 个工具</div>
+          <h2>claude-code-plugins-plus-skills</h2>
+          <p class="repo-name">jeremylongshore/claude-code-plugins-plus-skills</p>
+          <p class="plain">Claude Code 的插件和 Skills 数量变多后，用户很难靠手工浏览完成查找、安装、盘点和升级。它用 ccpi CLI 管理插件市场，提供按关键词搜索、安装包、查看已安装项目和统一更新等命令。</p>
           <div class="evidence">
             <h3>公开信息依据</h3>
-            <p><strong>原项目怎么说：</strong>Your AI second brain. Self-hostable. Get answers from the web or your docs. Build custom agents, schedule automations, do deep research. Turn any online or local LLM into your personal, autonomous AI (gpt, claude, gemini, llama, qwen, mistral). Get started - free.</p>
-<p><strong>主题线索：</strong>GitHub topics: agent, ai, assistant, chat, chatgpt, emacs, image-generation, llama3</p>
+            <p><strong>核验证据：</strong><a href="https://github.com/jeremylongshore/claude-code-plugins-plus-skills" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/jeremylongshore/claude-code-plugins-plus-skills/releases/tag/%40intentsolutionsio/databricks-pack%401.0.13" target="_blank" rel="noopener">证据 2</a></p>
           </div>
           <div class="story-block">
             <h3>它适合什么场景</h3>
-            <p>需要构建、评估或编排 AI Agent 工作流时使用。</p>
+            <p>需要 DevOps 能力时，可以先用 ccpi search devops 找候选，再安装指定自动化包，并通过 list 和 update 维护本地清单。</p>
           </div>
           <div class="grid-two">
             <div>
               <h3>值得关注的地方</h3>
-              <p>能直接回流到知识库场景，不只是停留在代码工具层面。</p>
+              <p>项目在 6 月 19 日发布了 Databricks Pack 1.0.13，属于 7 天内可核验的正式版本变化，而不是单纯 stars 波动。</p>
             </div>
             <div>
               <h3>先别忽略的问题</h3>
-              <p>Obsidian 插件或流程容易和个人库结构绑定，迁移前要先小范围试用。</p>
+              <p>市场规模大不代表每个包都可靠；安装第三方插件前仍要检查来源、命令权限、维护状态和实际内容，不能只看数量。</p>
             </div>
           </div>
-          <p class="verdict"><strong>我的判断：</strong>能直接回流到知识库场景，不只是停留在代码工具层面；但要先确认：Obsidian 插件或流程容易和个人库结构绑定，迁移前要先小范围试用。</p>
-          <a class="source-link" href="https://github.com/khoj-ai/khoj" target="_blank" rel="noopener">查看 GitHub 来源</a>
+          <p class="verdict"><strong>我的判断：</strong>适合已经在使用 Claude Code 插件体系、需要集中管理扩展的人；首次接触 Skills 的用户应先从少量经过审查的包开始。</p>
+          <a class="source-link" href="https://github.com/jeremylongshore/claude-code-plugins-plus-skills" target="_blank" rel="noopener">查看 GitHub 来源</a>
         </div>
-        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-khoj-ai__khoj.png" alt="khoj-ai/khoj 配图" loading="lazy"></figure>
+        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-jeremylongshore__claude-code-plugins-plus-skills.png" alt="jeremylongshore/claude-code-plugins-plus-skills 配图" loading="lazy"></figure>
       </section>
 <section class="tool-section" id="tool-4">
         <div class="tool-copy">
-          <div class="eyebrow">自动化模板 / 第 4 个工具</div>
-          <h2>awesome-n8n-templates</h2>
-          <p class="repo-name">enescingoz/awesome-n8n-templates</p>
-          <p class="plain">enescingoz/awesome-n8n-templates 是一套可导入的自动化工作流模板，适合从现成案例开始搭建 n8n 流程。</p>
+          <div class="eyebrow">Skill 工作流 / 第 4 个工具</div>
+          <h2>cherry-studio</h2>
+          <p class="repo-name">CherryHQ/cherry-studio</p>
+          <p class="plain">聊天、Agents、不同模型和大量预设助手分散在多个入口时，用户需要频繁切换工具并重复配置。它把智能聊天、自动 Agents、数百个助手和多个前沿模型入口集中到同一个 AI 工作台中。</p>
           <div class="evidence">
             <h3>公开信息依据</h3>
-            <p><strong>原项目怎么说：</strong>280+ free n8n automation templates — ready-to-use workflows for Gmail, Telegram, Slack, Discord, WhatsApp, Google Drive, Notion, OpenAI, and more. AI agents, RAG chatbots, email automation, social media, DevOps, and document processing. The largest open-source n8n template collection.</p>
-<p><strong>主题线索：</strong>GitHub topics: ai-agents, ai-automation, automation, automation-templates, awesome, awesome-list, integration, low-code</p>
+            <p><strong>核验证据：</strong><a href="https://github.com/CherryHQ/cherry-studio" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/CherryHQ/cherry-studio/releases/tag/v1.9.11" target="_blank" rel="noopener">证据 2</a></p>
           </div>
           <div class="story-block">
             <h3>它适合什么场景</h3>
-            <p>需要把现成 JSON 工作流导入 n8n，再按自己的账号和凭据调整时使用。</p>
+            <p>内容团队可以在统一入口选择不同模型或助手处理同一类任务，减少在多个独立客户端之间来回切换。</p>
           </div>
           <div class="grid-two">
             <div>
               <h3>值得关注的地方</h3>
-              <p>模板覆盖常见集成和自动化场景，能减少从空白工作流开始试错的时间。</p>
+              <p>仓库今天有新的代码活动，但没有可核验的新 Release，因此这里只能把它标记为维护活跃，不能宣称今天发布了新能力。</p>
             </div>
             <div>
               <h3>先别忽略的问题</h3>
-              <p>模板导入后仍要重配凭据、权限和数据字段，不能把示例直接当成稳定生产流程。</p>
+              <p>候选证据只证明仓库今天仍有 push，没有提供本次提交的功能说明；多模型整合还会带来密钥、费用和数据流向管理问题。</p>
             </div>
           </div>
-          <p class="verdict"><strong>我的判断：</strong>模板覆盖常见集成和自动化场景，能减少从空白工作流开始试错的时间；但要先确认：模板导入后仍要重配凭据、权限和数据字段，不能把示例直接当成稳定生产流程。</p>
-          <a class="source-link" href="https://github.com/enescingoz/awesome-n8n-templates" target="_blank" rel="noopener">查看 GitHub 来源</a>
+          <p class="verdict"><strong>我的判断：</strong>适合确实需要统一管理多个模型和助手的用户继续评估；若只固定使用一个模型，集中工作台带来的额外配置未必划算。</p>
+          <a class="source-link" href="https://github.com/CherryHQ/cherry-studio" target="_blank" rel="noopener">查看 GitHub 来源</a>
         </div>
-        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-enescingoz__awesome-n8n-templates.png" alt="enescingoz/awesome-n8n-templates 配图" loading="lazy"></figure>
+        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-cherryhq__cherry-studio.png" alt="CherryHQ/cherry-studio 配图" loading="lazy"></figure>
       </section>
 <section class="tool-section" id="tool-5">
         <div class="tool-copy">
-          <div class="eyebrow">Agent 工作流 / 第 5 个工具</div>
-          <h2>hermes-agent</h2>
-          <p class="repo-name">NousResearch/hermes-agent</p>
-          <p class="plain">NousResearch/hermes-agent 是把一个 AI 助手升级成一套会分工、会调用工具的自动化工作流。</p>
+          <div class="eyebrow">Agent 记忆 / 第 5 个工具</div>
+          <h2>brigade</h2>
+          <p class="repo-name">escoffier-labs/brigade</p>
+          <p class="plain">在 Codex、Claude Code 等多个编码 Agent 之间切换时，任务上下文容易丢失，本地执行也缺少统一约束。它以本地 CLI 形式提供 Agent 记忆、任务交接和内容护栏，目标是让多种编码 Agent 共用一套衔接与约束机制。</p>
           <div class="evidence">
             <h3>公开信息依据</h3>
-            <p><strong>原项目怎么说：</strong>The agent that grows with you</p>
-<p><strong>主题线索：</strong>GitHub topics: ai, ai-agent, ai-agents, anthropic, chatgpt, claude, claude-code, clawdbot</p>
+            <p><strong>核验证据：</strong><a href="https://github.com/escoffier-labs/brigade" target="_blank" rel="noopener">证据 1</a></p>
           </div>
           <div class="story-block">
             <h3>它适合什么场景</h3>
-            <p>需要构建、评估或编排 AI Agent 工作流时使用。</p>
+            <p>开发者可以在一个 Agent 完成阶段性工作后留下交接信息，再让另一个 Agent 接手，同时沿用本地护栏检查。</p>
           </div>
           <div class="grid-two">
             <div>
               <h3>值得关注的地方</h3>
-              <p>方向贴近 AI 工具链，适合作为新工具或新流程的观察对象。</p>
+              <p>仓库今天出现新的 push，说明仍在开发；由于没有正式版本证据，本次只能确认维护活动，不能把提交内容解释成已经稳定发布。</p>
             </div>
             <div>
               <h3>先别忽略的问题</h3>
-              <p>Agent 工具通常配置链路较长，需要先验证本机能不能稳定跑起来。</p>
+              <p>现有候选只有简短项目说明，没有安装步骤、护栏规则或 Release 细节；真正采用前必须继续验证数据保存位置和拦截范围。</p>
             </div>
           </div>
-          <p class="verdict"><strong>我的判断：</strong>方向贴近 AI 工具链，适合作为新工具或新流程的观察对象；但要先确认：Agent 工具通常配置链路较长，需要先验证本机能不能稳定跑起来。</p>
-          <a class="source-link" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener">查看 GitHub 来源</a>
+          <p class="verdict"><strong>我的判断：</strong>适合频繁跨编码 Agent 工作、愿意验证本地状态管理的开发者跟踪；需要成熟审计能力的生产团队应等待更完整证据。</p>
+          <a class="source-link" href="https://github.com/escoffier-labs/brigade" target="_blank" rel="noopener">查看 GitHub 来源</a>
         </div>
-        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-nousresearch__hermes-agent.png" alt="NousResearch/hermes-agent 配图" loading="lazy"></figure>
+        <figure class="tool-visual"><img src="../assets/2026-06-21/2026-06-21-escoffier-labs__brigade.png" alt="escoffier-labs/brigade 配图" loading="lazy"></figure>
       </section>
     </article>
     <section class="ending">
-      <strong>结论：</strong>今天这 5 个项目并不是同一种工具：zhayujie/CowAgent、zhnt/loushang、khoj-ai/khoj、enescingoz/awesome-n8n-templates、NousResearch/hermes-agent。它们分别切入工具调用、知识管理、自动化和长期协作等任务。真正值得关注的不是哪个项目最火，而是它能否解决真实问题，并在配置成本、稳定性和使用边界上经得起验证。
+      <strong>结论：</strong>今天这 5 个项目并不是同一种工具：pssah4/vault-operator、marcusquinn/aidevops、jeremylongshore/claude-code-plugins-plus-skills、CherryHQ/cherry-studio、escoffier-labs/brigade。它们分别切入工具调用、知识管理、自动化和长期协作等任务。真正值得关注的不是哪个项目最火，而是它能否解决真实问题，并在配置成本、稳定性和使用边界上经得起验证。
     </section>
   </main>
 </body>
