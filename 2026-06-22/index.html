@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</title>
+  <style>
+    :root {
+      --ink:#16201d; --muted:#5f6f68; --paper:#f7f2ea; --panel:#fffaf2;
+      --line:#dacfc0; --accent:#b85c3b; --green:#2f6f61; --dark:#111b18;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--paper); color:var(--ink); }
+    a { color:inherit; }
+    .page { max-width:1180px; margin:0 auto; padding:28px; }
+    .topbar { display:flex; justify-content:space-between; gap:18px; align-items:center; font-size:13px; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:14px; }
+    .brand { font-weight:800; color:var(--accent); letter-spacing:.08em; text-transform:uppercase; }
+    .hero { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr); gap:34px; align-items:end; padding:54px 0 34px; }
+    .hero h1 { font-family:Georgia, "Times New Roman", serif; font-size:clamp(40px,6vw,76px); line-height:.96; letter-spacing:0; margin:14px 0 18px; }
+    .hero p { font-size:18px; line-height:1.75; color:#485650; max-width:760px; }
+    .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+    .pill { border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:rgba(255,250,242,.7); color:#4a5852; font-size:13px; }
+    .hero-visual { margin:0; border-radius:10px; overflow:hidden; background:var(--dark); box-shadow:0 18px 60px rgba(48,34,22,.18); }
+    .hero-visual img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
+    .toc { position:sticky; top:0; z-index:2; display:flex; gap:8px; overflow:auto; padding:14px 0; background:linear-gradient(var(--paper) 72%, rgba(247,242,234,.8)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .toc a { white-space:nowrap; text-decoration:none; color:#35423d; border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:var(--panel); font-size:13px; }
+    .intro { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:32px 0; }
+    .note { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:20px; line-height:1.7; color:#40504a; }
+    .model-updates { padding:34px 0 20px; border-top:1px solid var(--line); }
+    .section-heading { display:flex; align-items:end; justify-content:space-between; gap:18px; margin-bottom:18px; }
+    .section-heading h2 { font-family:Georgia, "Times New Roman", serif; font-size:38px; margin:0; }
+    .update-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .update-card, .empty-update { background:var(--dark); color:#eef3ef; border-radius:9px; padding:20px; line-height:1.7; }
+    .update-card h3 { font-size:20px; line-height:1.35; margin:10px 0 14px; }
+    .update-card p { color:#cbd6d0; }
+    .update-card a { color:#f1b092; }
+    .update-meta { color:#95b5aa; font-size:12px; }
+    .tool-section { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,420px); gap:28px; padding:42px 0; border-top:1px solid var(--line); }
+    .eyebrow { color:var(--accent); font-size:12px; text-transform:uppercase; letter-spacing:.08em; font-weight:800; }
+    .tool-section h2 { font-family:Georgia, "Times New Roman", serif; font-size:36px; margin:10px 0 12px; }
+    .repo-name { margin:-4px 0 18px; color:var(--muted); font-size:14px; }
+    .plain { font-size:18px; line-height:1.7; color:#33423d; }
+    .evidence { background:rgba(255,250,242,.78); border-left:4px solid var(--green); padding:16px 18px; margin:20px 0; line-height:1.65; }
+    h3 { margin:0 0 10px; font-size:15px; }
+    .grid-two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .grid-two > div, .story-block { background:rgba(255,250,242,.56); border:1px solid rgba(218,207,192,.8); border-radius:8px; padding:16px; line-height:1.75; color:#40504a; }
+    .grid-two p, .story-block p { margin:0; }
+    .verdict { margin:18px 0 0; padding:16px 18px; border-radius:8px; background:#e8efe9; color:#253b33; line-height:1.75; }
+    ul { padding-left:18px; line-height:1.7; color:#485650; }
+    .source-link { display:inline-block; margin-top:12px; text-decoration:none; color:white; background:var(--dark); padding:10px 14px; border-radius:6px; }
+    .tool-visual { margin:0; border-radius:10px; overflow:hidden; align-self:start; background:#18221f; box-shadow:0 14px 40px rgba(48,34,22,.16); }
+    .tool-visual img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
+    .ending { border-top:1px solid var(--line); padding:34px 0 60px; font-size:19px; line-height:1.8; color:#35443f; }
+    @media (max-width:860px) {
+      .page { padding:18px; }
+      .hero, .tool-section, .intro, .grid-two, .update-grid { grid-template-columns:1fr; }
+      .hero { padding-top:32px; }
+      .tool-section h2 { font-size:30px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar"><div class="brand">AI Tool Brief</div><div>2026-06-22 / 今日观察</div></header>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">今日图文文章</div>
+        <h1>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</h1>
+        <p>今天精选 5 个项目，覆盖Agent 工具接入、Agent 工作流、Skill 工作流、RAG 与自动化。重点不是热度，而是它们能否解决真实任务。</p>
+        <div class="meta">
+          <span class="pill">5 个新工具</span>
+          <span class="pill">大白话解释</span>
+          <span class="pill">优缺点判断</span>
+        </div>
+      </div>
+      <figure class="hero-visual"><img src="../assets/2026-06-22/2026-06-22-askimo-ai__askimo.png" alt="文章主视觉"></figure>
+    </section>
+    <nav class="toc"><a href="#tool-1">1. askimo-ai/askimo</a>
+<a href="#tool-2">2. stablyai/orca</a>
+<a href="#tool-3">3. aannoo/hcom</a>
+<a href="#tool-4">4. simstudioai/sim</a>
+<a href="#tool-5">5. im4codes/imcodes</a></nav>
+    <section class="intro">
+      <div class="note"><strong>为什么值得看：</strong>这些项目共同指向一个变化：AI 不再只是回答问题，而是开始接入工具、记住资料、拆解任务，帮人处理更完整的工作。</div>
+      <div class="note"><strong>怎么判断好不好用：</strong>别只看热度。更重要的是它能不能解决一个真实问题、配置成本高不高、普通人有没有清晰的使用入口。</div>
+    </section>
+    <section class="model-updates" id="model-updates">
+      <div class="section-heading"><div class="eyebrow">模型观察</div><h2>前沿模型动态</h2></div>
+      <div class="update-grid"><article class="update-card">
+          <div class="update-meta">OpenAI · ChatGPT 与 Codex · 2026-06-21</div>
+          <h3>Samsung Electronics 向员工部署 ChatGPT 与 Codex</h3>
+          <p><strong>发生了什么：</strong>OpenAI 官方披露 Samsung Electronics 面向员工引入 ChatGPT 与 Codex。这是企业内部采用进展，并非新模型或新版本发布。</p>
+          <p><strong>为什么重要：</strong>大型制造企业同时把通用对话与编程代理纳入员工工具，说明企业采用正在覆盖知识工作和软件开发两类场景。</p>
+          <p><strong>谁该关注：</strong>正在评估企业级 AI 助手与编程代理的技术负责人可关注这一部署案例；实际效果仍取决于权限、数据治理和内部推广方式。</p>
+          <a href="https://openai.com/index/samsung-electronics-chatgpt-codex-deployment/" target="_blank" rel="noopener">查看官方来源</a>
+        </article></div>
+    </section>
+    <article>
+      <section class="tool-section" id="tool-1">
+        <div class="tool-copy">
+          <div class="eyebrow">Agent 工具接入 / 第 1 个工具</div>
+          <h2>askimo</h2>
+          <p class="repo-name">askimo-ai/askimo</p>
+          <p class="plain">个人或小团队同时使用多家模型、私有资料检索和工具调用时，往往要在多个客户端、密钥配置和工作流之间来回切换。Askimo 把聊天、RAG 检索、多步骤 Plans、MCP 工具和 Agent 接入放进同一套桌面工具，并允许连接 OpenAI、Claude、Gemini、Grok、Ollama、LM Studio 等服务。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/askimo-ai/askimo" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/askimo-ai/askimo/releases/tag/v1.4.10" target="_blank" rel="noopener">证据 2</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>例如，用户可先接入本机 Ollama 处理敏感资料，再建立一个多步骤计划，让模型检索资料并调用 MCP 工具完成后续操作，而不用为每个模型换一套界面。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>项目在 2026-06-22 发布 v1.4.10，属于近 24 小时可核验的正式 Release；候选材料未提供该版本变更明细，因此只能确认发布活动，不能推断新增功能。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>多提供商兼容会增加密钥、模型能力差异和工具权限的管理成本；候选证据只给出快速开始与功能范围，无法据此判断复杂工作流的稳定性。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合希望在一个桌面入口试用多模型、RAG 与 MCP 的个人和技术团队；需要严格权限审计或生产级编排的组织应先做小范围验证。</p>
+          <a class="source-link" href="https://github.com/askimo-ai/askimo" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-22/2026-06-22-askimo-ai__askimo.png" alt="askimo-ai/askimo 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-2">
+        <div class="tool-copy">
+          <div class="eyebrow">Agent 工作流 / 第 2 个工具</div>
+          <h2>orca</h2>
+          <p class="repo-name">stablyai/orca</p>
+          <p class="plain">并行启动多个编码代理后，开发者很难在不同终端里持续掌握任务进度、切换会话并及时介入。Orca 提供面向代理队列的开发环境，把不同编码代理的运行入口集中起来，并提供桌面和移动端访问；代理仍使用用户自己的订阅。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/stablyai/orca" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/stablyai/orca/releases/tag/v1.4.90" target="_blank" rel="noopener">证据 2</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>例如，开发者可让多个代理分别处理测试、文档和模块修改，在统一界面查看它们的状态，离开电脑后再从移动端检查是否需要人工决策。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>项目在 2026-06-22 发布 v1.4.90，属于正式 Release；候选证据没有版本说明，不能把当天发布等同于某项具体能力更新。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>并行代理会放大订阅费用、冲突修改和审查负担；现有紧凑证据没有展示隔离、合并策略或移动端能力边界。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合已经并行使用 Claude Code、Codex 等编码代理且愿意承担协调成本的开发者；只有单代理需求时，引入额外控制层的收益可能有限。</p>
+          <a class="source-link" href="https://github.com/stablyai/orca" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-22/2026-06-22-stablyai__orca.png" alt="stablyai/orca 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-3">
+        <div class="tool-copy">
+          <div class="eyebrow">Skill 工作流 / 第 3 个工具</div>
+          <h2>hcom</h2>
+          <p class="repo-name">aannoo/hcom</p>
+          <p class="plain">多个 AI 代理分散在不同终端时，彼此缺少通用的通信、状态观察和启动机制，人工转述上下文容易遗漏。hcom 为 Claude Code、Codex、Cursor CLI、OpenCode 等命令行代理提供跨终端消息、观察和相互启动能力，让代理之间能建立轻量协作链路。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/aannoo/hcom" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/aannoo/hcom/releases/tag/v0.7.21" target="_blank" rel="noopener">证据 2</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>例如，一个负责主实现的 Codex 会话可向另一个终端中的审查代理发送待检查内容，并观察对方完成情况，再按返回结果继续处理。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>仓库在 2026-06-22 有普通 push 活动。虽然候选中出现 v0.7.21 链接，但 release_evidence 为空，因此不能把这次活跃表述为已核验的新 Release。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>代理互相启动会扩大命令执行和上下文传播范围，需要明确权限、终止条件与日志审计；候选证据不足以确认消息可靠性和故障恢复方式。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合在本地终端实验多代理协作、并能自行控制权限边界的高级用户；不适合直接承担无人监管的关键生产任务。</p>
+          <a class="source-link" href="https://github.com/aannoo/hcom" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-22/2026-06-22-aannoo__hcom.png" alt="aannoo/hcom 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-4">
+        <div class="tool-copy">
+          <div class="eyebrow">RAG 与自动化 / 第 4 个工具</div>
+          <h2>sim</h2>
+          <p class="repo-name">simstudioai/sim</p>
+          <p class="plain">把多个模型、工具和业务步骤组合成可部署的 AI 流程时，纯代码方案的搭建、调试和维护门槛较高。Sim 提供低代码式的代理工作流构建、部署与编排入口，用一个中心层组织模型调用和自动化步骤。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/simstudioai/sim" target="_blank" rel="noopener">证据 1</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>例如，运营团队可搭建一条流程：接收客户问题、调用模型分类、转交相应工具处理，再把结果写回业务系统，并由开发者统一维护连接配置。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>仓库在 2026-06-22 有普通 push，说明近期维护活跃，但没有可核验的正式 Release 证据，不能据此宣称当天发布了新功能。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>集中编排会带来平台依赖、运行成本和凭据集中管理风险；候选材料没有足够细节证明复杂分支、调试或自托管能力。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合希望快速验证代理自动化流程、同时有技术人员管理集成的团队；对可移植性和底层控制要求高的项目应先评估锁定成本。</p>
+          <a class="source-link" href="https://github.com/simstudioai/sim" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-22/2026-06-22-simstudioai__sim.png" alt="simstudioai/sim 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-5">
+        <div class="tool-copy">
+          <div class="eyebrow">Agent 记忆 / 第 5 个工具</div>
+          <h2>imcodes</h2>
+          <p class="repo-name">im4codes/imcodes</p>
+          <p class="plain">跨 OpenAI、Claude、Gemini 等生态使用代理时，上下文、记忆、执行监督和审计记录容易割裂，团队难以追踪谁做了什么。imcodes 把代理间通信、共享上下文与记忆、受监督执行和跨代理审计放在同一服务中，并支持多种代理客户端接入。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/im4codes/imcodes" target="_blank" rel="noopener">证据 1</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>例如，团队可让 Claude Code 生成方案、Codex 执行修改，同时在共享空间保留任务上下文和操作记录，由负责人检查关键步骤后再继续。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>仓库在 2026-06-22 有普通 push，属于近 7 天维护活跃信号，不是正式 Release；当日价值在于多代理监督与审计需求正随工具增多而变得具体。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>共享上下文会集中敏感代码和执行记录，自托管、访问控制与数据保留策略不可省略；官方候选还明确公共实例仅供测试，没有可用性保证。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合愿意自托管、需要统一观察多家代理的技术团队；缺少运维能力或不能集中保存上下文的组织不宜直接采用。</p>
+          <a class="source-link" href="https://github.com/im4codes/imcodes" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-22/2026-06-22-im4codes__imcodes.png" alt="im4codes/imcodes 配图" loading="lazy"></figure>
+      </section>
+    </article>
+    <section class="ending">
+      <strong>结论：</strong>今天这 5 个项目并不是同一种工具：askimo-ai/askimo、stablyai/orca、aannoo/hcom、simstudioai/sim、im4codes/imcodes。它们分别切入工具调用、知识管理、自动化和长期协作等任务。真正值得关注的不是哪个项目最火，而是它能否解决真实问题，并在配置成本、稳定性和使用边界上经得起验证。
+    </section>
+  </main>
+</body>
+</html>
