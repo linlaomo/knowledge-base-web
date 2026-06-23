@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</title>
+  <style>
+    :root {
+      --ink:#16201d; --muted:#5f6f68; --paper:#f7f2ea; --panel:#fffaf2;
+      --line:#dacfc0; --accent:#b85c3b; --green:#2f6f61; --dark:#111b18;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--paper); color:var(--ink); }
+    a { color:inherit; }
+    .page { max-width:1180px; margin:0 auto; padding:28px; }
+    .topbar { display:flex; justify-content:space-between; gap:18px; align-items:center; font-size:13px; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:14px; }
+    .brand { font-weight:800; color:var(--accent); letter-spacing:.08em; text-transform:uppercase; }
+    .hero { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr); gap:34px; align-items:end; padding:54px 0 34px; }
+    .hero h1 { font-family:Georgia, "Times New Roman", serif; font-size:clamp(40px,6vw,76px); line-height:.96; letter-spacing:0; margin:14px 0 18px; }
+    .hero p { font-size:18px; line-height:1.75; color:#485650; max-width:760px; }
+    .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+    .pill { border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:rgba(255,250,242,.7); color:#4a5852; font-size:13px; }
+    .hero-visual { margin:0; border-radius:10px; overflow:hidden; background:var(--dark); box-shadow:0 18px 60px rgba(48,34,22,.18); }
+    .hero-visual img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
+    .toc { position:sticky; top:0; z-index:2; display:flex; gap:8px; overflow:auto; padding:14px 0; background:linear-gradient(var(--paper) 72%, rgba(247,242,234,.8)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .toc a { white-space:nowrap; text-decoration:none; color:#35423d; border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:var(--panel); font-size:13px; }
+    .intro { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:32px 0; }
+    .note { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:20px; line-height:1.7; color:#40504a; }
+    .model-updates { padding:34px 0 20px; border-top:1px solid var(--line); }
+    .section-heading { display:flex; align-items:end; justify-content:space-between; gap:18px; margin-bottom:18px; }
+    .section-heading h2 { font-family:Georgia, "Times New Roman", serif; font-size:38px; margin:0; }
+    .update-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .update-card, .empty-update { background:var(--dark); color:#eef3ef; border-radius:9px; padding:20px; line-height:1.7; }
+    .update-card h3 { font-size:20px; line-height:1.35; margin:10px 0 14px; }
+    .update-card p { color:#cbd6d0; }
+    .update-card a { color:#f1b092; }
+    .update-meta { color:#95b5aa; font-size:12px; }
+    .tool-section { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,420px); gap:28px; padding:42px 0; border-top:1px solid var(--line); }
+    .eyebrow { color:var(--accent); font-size:12px; text-transform:uppercase; letter-spacing:.08em; font-weight:800; }
+    .tool-section h2 { font-family:Georgia, "Times New Roman", serif; font-size:36px; margin:10px 0 12px; }
+    .repo-name { margin:-4px 0 18px; color:var(--muted); font-size:14px; }
+    .plain { font-size:18px; line-height:1.7; color:#33423d; }
+    .evidence { background:rgba(255,250,242,.78); border-left:4px solid var(--green); padding:16px 18px; margin:20px 0; line-height:1.65; }
+    h3 { margin:0 0 10px; font-size:15px; }
+    .grid-two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .grid-two > div, .story-block { background:rgba(255,250,242,.56); border:1px solid rgba(218,207,192,.8); border-radius:8px; padding:16px; line-height:1.75; color:#40504a; }
+    .grid-two p, .story-block p { margin:0; }
+    .verdict { margin:18px 0 0; padding:16px 18px; border-radius:8px; background:#e8efe9; color:#253b33; line-height:1.75; }
+    ul { padding-left:18px; line-height:1.7; color:#485650; }
+    .source-link { display:inline-block; margin-top:12px; text-decoration:none; color:white; background:var(--dark); padding:10px 14px; border-radius:6px; }
+    .tool-visual { margin:0; border-radius:10px; overflow:hidden; align-self:start; background:#18221f; box-shadow:0 14px 40px rgba(48,34,22,.16); }
+    .tool-visual img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
+    .ending { border-top:1px solid var(--line); padding:34px 0 60px; font-size:19px; line-height:1.8; color:#35443f; }
+    @media (max-width:860px) {
+      .page { padding:18px; }
+      .hero, .tool-section, .intro, .grid-two, .update-grid { grid-template-columns:1fr; }
+      .hero { padding-top:32px; }
+      .tool-section h2 { font-size:30px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar"><div class="brand">AI Tool Brief</div><div>2026-06-23 / 今日观察</div></header>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">今日图文文章</div>
+        <h1>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</h1>
+        <p>今天精选 5 个项目，覆盖Agent 工具接入、Agent 工作流、Skill 工作流、实用工具。重点不是热度，而是它们能否解决真实任务。</p>
+        <div class="meta">
+          <span class="pill">5 个新工具</span>
+          <span class="pill">大白话解释</span>
+          <span class="pill">优缺点判断</span>
+        </div>
+      </div>
+      <figure class="hero-visual"><img src="../assets/2026-06-23/2026-06-23-hashgraph-online__hol-guard.png" alt="文章主视觉"></figure>
+    </section>
+    <nav class="toc"><a href="#tool-1">1. hashgraph-online/hol-guard</a>
+<a href="#tool-2">2. omnigent-ai/omnigent</a>
+<a href="#tool-3">3. iOfficeAI/OfficeCLI</a>
+<a href="#tool-4">4. nudgebee/nudgebee</a>
+<a href="#tool-5">5. volcengine/SearchCLI</a></nav>
+    <section class="intro">
+      <div class="note"><strong>为什么值得看：</strong>这些项目共同指向一个变化：AI 不再只是回答问题，而是开始接入工具、记住资料、拆解任务，帮人处理更完整的工作。</div>
+      <div class="note"><strong>怎么判断好不好用：</strong>别只看热度。更重要的是它能不能解决一个真实问题、配置成本高不高、普通人有没有清晰的使用入口。</div>
+    </section>
+    <section class="model-updates" id="model-updates">
+      <div class="section-heading"><div class="eyebrow">模型观察</div><h2>前沿模型动态</h2></div>
+      <div class="update-grid"><article class="update-card">
+          <div class="update-meta">OpenAI News · Codex · 2026-06-22</div>
+          <h3>OpenAI 分享 Codex 处理长时间任务的实践</h3>
+          <p><strong>发生了什么：</strong>OpenAI 发布一篇关于让 Codex 承担长时间运行工作的实践文章，重点从一次性代码生成转向持续推进较长任务的使用方式。</p>
+          <p><strong>为什么重要：</strong>这类实践有助于团队判断哪些开发工作可以交给代理持续执行，以及如何观察任务是否真正向目标推进，而不只是完成短小指令。</p>
+          <p><strong>谁该关注：</strong>正在评估 Codex 长任务能力、代理式开发流程或工程自动化边界的开发者与技术负责人。</p>
+          <a href="https://openai.com/index/codex-maxxing-long-running-work/" target="_blank" rel="noopener">查看官方来源</a>
+        </article></div>
+    </section>
+    <article>
+      <section class="tool-section" id="tool-1">
+        <div class="tool-copy">
+          <div class="eyebrow">Agent 工具接入 / 第 1 个工具</div>
+          <h2>hol-guard</h2>
+          <p class="repo-name">hashgraph-online/hol-guard</p>
+          <p class="plain">开发代理会在本机加载插件、Skill 和 MCP 服务；一旦其中夹带危险行为，风险可能在工具真正运行后才暴露。它把插件、Skill、MCP 服务和代理工具放到执行前的扫描环节，尝试提前识别可疑内容，为 Codex、Claude Code、Cursor 等不同代理提供同一层检查。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/hashgraph-online/hol-guard" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/hashgraph-online/hol-guard/releases/tag/v2.0.869" target="_blank" rel="noopener">证据 2</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>团队准备把第三方 MCP 服务接入 Codex 前，可以先用 hol-guard 扫描相关包和配置，再决定是否允许它进入开发环境。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>项目在 2026-06-23 发布了 v2.0.869，属于可核验的正式 Release，而不是仅有代码推送。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>扫描结果不能替代隔离运行、最小权限和人工审查；规则可能漏掉新型风险，也可能把正常行为标成可疑。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合频繁引入第三方代理扩展、需要建立上线前安全检查的团队；只使用自有且经过审查工具的小型项目收益较低。</p>
+          <a class="source-link" href="https://github.com/hashgraph-online/hol-guard" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-23/2026-06-23-hashgraph-online__hol-guard.png" alt="hashgraph-online/hol-guard 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-2">
+        <div class="tool-copy">
+          <div class="eyebrow">Agent 工作流 / 第 2 个工具</div>
+          <h2>omnigent</h2>
+          <p class="repo-name">omnigent-ai/omnigent</p>
+          <p class="plain">同时使用 Claude Code、Codex、Cursor 等代理时，每套工具的调用方式、策略和协作入口不同，切换底层代理往往要重写流程。它在多种开发代理之上提供统一编排层，把代理选择、策略约束、沙箱和实时协作集中到一个框架中，使上层流程不必绑定单一 harness。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/omnigent-ai/omnigent" target="_blank" rel="noopener">证据 1</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>一支团队可以保持同一套任务分派和安全策略，在某项工作上调用 Codex，另一项工作切换到 Claude Code，而不重做整个工作流。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>仓库在 2026-06-23 有普通 push，说明仍在活跃开发，但候选中没有正式 Release 证据，不应把它解读为稳定版本发布。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>统一层会增加部署和调试复杂度；候选证据只展示项目定位与 Quick start，尚不足以证明各种代理在复杂场景中的兼容程度。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合确实需要跨代理编排、集中治理或远程协作的团队试验；只固定使用一种编码代理时，额外抽象未必划算。</p>
+          <a class="source-link" href="https://github.com/omnigent-ai/omnigent" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-23/2026-06-23-omnigent-ai__omnigent.png" alt="omnigent-ai/omnigent 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-3">
+        <div class="tool-copy">
+          <div class="eyebrow">Skill 工作流 / 第 3 个工具</div>
+          <h2>OfficeCLI</h2>
+          <p class="repo-name">iOfficeAI/OfficeCLI</p>
+          <p class="plain">代理要修改 Word、Excel 和 PowerPoint 文件时，常受桌面 Office 环境、GUI 自动化稳定性和文件格式差异限制。它用单一命令行程序直接创建、读取和编辑 Office 文件，让代理通过结构化命令操作文档元素，而不依赖安装桌面 Office。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/iOfficeAI/OfficeCLI" target="_blank" rel="noopener">证据 1</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>代理可先创建 deck.pptx，再用命令添加幻灯片和带位置、字体、颜色属性的文本形状，形成可继续编辑的演示文件。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>仓库在 2026-06-23 有普通 push，表明项目近期仍在维护；候选没有 Release 信息，因此只能视为活跃项目更新。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>命令行抽象是否覆盖复杂版式、高级公式和精细兼容性仍需实测；项目自称的领先地位属于宣传语，不能作为能力证据。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合需要代理批量生成或修改常见 Office 文件、又不想依赖 GUI 的开发者；对像素级排版和完整 Office 兼容有硬要求时应先做样例验证。</p>
+          <a class="source-link" href="https://github.com/iOfficeAI/OfficeCLI" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-23/2026-06-23-iofficeai__officecli.png" alt="iOfficeAI/OfficeCLI 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-4">
+        <div class="tool-copy">
+          <div class="eyebrow">实用工具 / 第 4 个工具</div>
+          <h2>nudgebee</h2>
+          <p class="repo-name">nudgebee/nudgebee</p>
+          <p class="plain">云运维数据散落在可观测性、成本、Kubernetes 和事件响应工具里，排障人员需要频繁切换上下文并手工串联操作。它把观测、FinOps、运行手册自动化和事件响应放进一个 CloudOps 平台，并面向 AWS、Azure、GCP 与 Kubernetes 提供代理式操作入口。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/nudgebee/nudgebee" target="_blank" rel="noopener">证据 1</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>值班人员发现 Kubernetes 服务异常后，可以在同一处查看相关信号、核对云成本变化，并调用既有运行手册推进处置。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>仓库最近一次候选证据是 2026-06-22 的普通 push，没有正式 Release；它体现近期维护活跃，不代表出现已验证的新版本能力。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>统一平台需要接入多套云权限和运维数据，权限边界、误操作控制与实际覆盖深度必须单独验证；本地开发还要同时运行基础设施容器、后端和前端。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合工具链碎片化明显、愿意投入集成成本的多云或 Kubernetes 团队评估；规模较小、现有运维链路简单的团队可能不需要再加一层平台。</p>
+          <a class="source-link" href="https://github.com/nudgebee/nudgebee" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-23/2026-06-23-nudgebee__nudgebee.png" alt="nudgebee/nudgebee 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-5">
+        <div class="tool-copy">
+          <div class="eyebrow">RAG 与自动化 / 第 5 个工具</div>
+          <h2>SearchCLI</h2>
+          <p class="repo-name">volcengine/SearchCLI</p>
+          <p class="plain">代理或业务系统要接入搜索、推荐和对话式检索时，通常要分别处理不同接口，难以快速用命令行验证检索链路。它把 AI 搜索、推荐与对话式检索能力收敛为 CLI，供人或代理通过命令调用，并可嵌入自动化和业务系统。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/volcengine/SearchCLI" target="_blank" rel="noopener">证据 1</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>开发者可以先在终端发起一次检索请求，检查返回结果是否满足需求，再把同一调用方式接入代理的工具链。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>仓库在 2026-06-23 有普通 push，说明开发活动较新，但没有候选证据表明当天发布了正式 Release。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>候选仅给出产品定位和 Quick Start 标题，尚未展示具体命令、后端依赖、费用或结果质量；用于生产前需要验证鉴权、延迟和供应商依赖。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合需要快速试验搜索工具调用、或计划给代理增加检索入口的开发者；需要可迁移后端和明确服务等级的团队应先核查接口边界。</p>
+          <a class="source-link" href="https://github.com/volcengine/SearchCLI" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-23/2026-06-23-volcengine__searchcli.png" alt="volcengine/SearchCLI 配图" loading="lazy"></figure>
+      </section>
+    </article>
+    <section class="ending">
+      <strong>结论：</strong>今天这 5 个项目并不是同一种工具：hashgraph-online/hol-guard、omnigent-ai/omnigent、iOfficeAI/OfficeCLI、nudgebee/nudgebee、volcengine/SearchCLI。它们分别切入工具调用、知识管理、自动化和长期协作等任务。真正值得关注的不是哪个项目最火，而是它能否解决真实问题，并在配置成本、稳定性和使用边界上经得起验证。
+    </section>
+  </main>
+</body>
+</html>
