@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</title>
+  <style>
+    :root {
+      --ink:#16201d; --muted:#5f6f68; --paper:#f7f2ea; --panel:#fffaf2;
+      --line:#dacfc0; --accent:#b85c3b; --green:#2f6f61; --dark:#111b18;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--paper); color:var(--ink); }
+    a { color:inherit; }
+    .page { max-width:1180px; margin:0 auto; padding:28px; }
+    .topbar { display:flex; justify-content:space-between; gap:18px; align-items:center; font-size:13px; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:14px; }
+    .brand { font-weight:800; color:var(--accent); letter-spacing:.08em; text-transform:uppercase; }
+    .hero { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr); gap:34px; align-items:end; padding:54px 0 34px; }
+    .hero h1 { font-family:Georgia, "Times New Roman", serif; font-size:clamp(40px,6vw,76px); line-height:.96; letter-spacing:0; margin:14px 0 18px; }
+    .hero p { font-size:18px; line-height:1.75; color:#485650; max-width:760px; }
+    .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+    .pill { border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:rgba(255,250,242,.7); color:#4a5852; font-size:13px; }
+    .hero-visual { margin:0; border-radius:10px; overflow:hidden; background:var(--dark); box-shadow:0 18px 60px rgba(48,34,22,.18); }
+    .hero-visual img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
+    .toc { position:sticky; top:0; z-index:2; display:flex; gap:8px; overflow:auto; padding:14px 0; background:linear-gradient(var(--paper) 72%, rgba(247,242,234,.8)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .toc a { white-space:nowrap; text-decoration:none; color:#35423d; border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:var(--panel); font-size:13px; }
+    .intro { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:32px 0; }
+    .note { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:20px; line-height:1.7; color:#40504a; }
+    .model-updates { padding:34px 0 20px; border-top:1px solid var(--line); }
+    .section-heading { display:flex; align-items:end; justify-content:space-between; gap:18px; margin-bottom:18px; }
+    .section-heading h2 { font-family:Georgia, "Times New Roman", serif; font-size:38px; margin:0; }
+    .update-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .update-card, .empty-update { background:var(--dark); color:#eef3ef; border-radius:9px; padding:20px; line-height:1.7; }
+    .update-card h3 { font-size:20px; line-height:1.35; margin:10px 0 14px; }
+    .update-card p { color:#cbd6d0; }
+    .update-card a { color:#f1b092; }
+    .update-meta { color:#95b5aa; font-size:12px; }
+    .tool-section { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,420px); gap:28px; padding:42px 0; border-top:1px solid var(--line); }
+    .eyebrow { color:var(--accent); font-size:12px; text-transform:uppercase; letter-spacing:.08em; font-weight:800; }
+    .tool-section h2 { font-family:Georgia, "Times New Roman", serif; font-size:36px; margin:10px 0 12px; }
+    .repo-name { margin:-4px 0 18px; color:var(--muted); font-size:14px; }
+    .plain { font-size:18px; line-height:1.7; color:#33423d; }
+    .evidence { background:rgba(255,250,242,.78); border-left:4px solid var(--green); padding:16px 18px; margin:20px 0; line-height:1.65; }
+    h3 { margin:0 0 10px; font-size:15px; }
+    .grid-two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .grid-two > div, .story-block { background:rgba(255,250,242,.56); border:1px solid rgba(218,207,192,.8); border-radius:8px; padding:16px; line-height:1.75; color:#40504a; }
+    .grid-two p, .story-block p { margin:0; }
+    .verdict { margin:18px 0 0; padding:16px 18px; border-radius:8px; background:#e8efe9; color:#253b33; line-height:1.75; }
+    ul { padding-left:18px; line-height:1.7; color:#485650; }
+    .source-link { display:inline-block; margin-top:12px; text-decoration:none; color:white; background:var(--dark); padding:10px 14px; border-radius:6px; }
+    .tool-visual { margin:0; border-radius:10px; overflow:hidden; align-self:start; background:#18221f; box-shadow:0 14px 40px rgba(48,34,22,.16); }
+    .tool-visual img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
+    .ending { border-top:1px solid var(--line); padding:34px 0 60px; font-size:19px; line-height:1.8; color:#35443f; }
+    @media (max-width:860px) {
+      .page { padding:18px; }
+      .hero, .tool-section, .intro, .grid-two, .update-grid { grid-template-columns:1fr; }
+      .hero { padding-top:32px; }
+      .tool-section h2 { font-size:30px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar"><div class="brand">AI Tool Brief</div><div>2026-06-24 / 今日观察</div></header>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">今日图文文章</div>
+        <h1>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</h1>
+        <p>今天精选 5 个项目，覆盖Agent 工具接入、Agent 工作流、知识库增强、Skill 工作流。重点不是热度，而是它们能否解决真实任务。</p>
+        <div class="meta">
+          <span class="pill">5 个新工具</span>
+          <span class="pill">大白话解释</span>
+          <span class="pill">优缺点判断</span>
+        </div>
+      </div>
+      <figure class="hero-visual"><img src="../assets/2026-06-24/2026-06-24-bagidea__bagidea-office.png" alt="文章主视觉"></figure>
+    </section>
+    <nav class="toc"><a href="#tool-1">1. bagidea/bagidea-office</a>
+<a href="#tool-2">2. stablyai/orca</a>
+<a href="#tool-3">3. stevesolun/ctx</a>
+<a href="#tool-4">4. volcengine/OpenViking</a>
+<a href="#tool-5">5. pipeshub-ai/pipeshub-ai</a></nav>
+    <section class="intro">
+      <div class="note"><strong>为什么值得看：</strong>这些项目共同指向一个变化：AI 不再只是回答问题，而是开始接入工具、记住资料、拆解任务，帮人处理更完整的工作。</div>
+      <div class="note"><strong>怎么判断好不好用：</strong>别只看热度。更重要的是它能不能解决一个真实问题、配置成本高不高、普通人有没有清晰的使用入口。</div>
+    </section>
+    <section class="model-updates" id="model-updates">
+      <div class="section-heading"><div class="eyebrow">模型观察</div><h2>前沿模型动态</h2></div>
+      <div class="update-grid"><article class="update-card">
+          <div class="update-meta">OpenAI News · GPT-5 · 2026-06-23</div>
+          <h3>GPT-5 参与破解一项持续三年的免疫学难题</h3>
+          <p><strong>发生了什么：</strong>OpenAI 发布应用案例，介绍免疫学家 Derya Unutmaz 如何借助 GPT-5 分析并推进一个长期未解的研究问题。</p>
+          <p><strong>为什么重要：</strong>这不是新模型发布，而是 GPT-5 在专业科研推理场景中的具体使用证据，可用于观察通用模型怎样进入假设生成与线索梳理环节。</p>
+          <p><strong>谁该关注：</strong>从事生物医学研究、科研智能体和高风险专业问答评估的团队。</p>
+          <a href="https://openai.com/index/gpt-5-immunology-mystery/" target="_blank" rel="noopener">查看官方来源</a>
+        </article> <article class="update-card">
+          <div class="update-meta">Anthropic News · Claude Tag · 2026-06-23</div>
+          <h3>Anthropic 推出面向团队协作的 Claude Tag</h3>
+          <p><strong>发生了什么：</strong>Anthropic 发布 Claude Tag，将其定位为团队共同使用 Claude 的新方式。</p>
+          <p><strong>为什么重要：</strong>关注点从个人对话转向多人协作，意味着团队需要重新评估上下文共享、职责边界和工作成果衔接方式。</p>
+          <p><strong>谁该关注：</strong>正在把 Claude 引入研发、研究或内容协作流程的团队负责人和平台管理员。</p>
+          <a href="https://www.anthropic.com/news/introducing-claude-tag" target="_blank" rel="noopener">查看官方来源</a>
+        </article></div>
+    </section>
+    <article>
+      <section class="tool-section" id="tool-1">
+        <div class="tool-copy">
+          <div class="eyebrow">Agent 工具接入 / 第 1 个工具</div>
+          <h2>bagidea-office</h2>
+          <p class="repo-name">bagidea/bagidea-office</p>
+          <p class="plain">同时运行多个编码智能体时，任务归属、权限请求和协作过程通常散落在多个终端里，很难一眼判断谁在做什么。它把 Claude Code 等智能体映射成桌面壁纸中的 2.5D 办公室角色，并把开始工作、授权、委派、开会和学习技能等状态变成可见动作；每个智能体还能分别切换模型并接入工作流、插件及消息渠道。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/bagidea/bagidea-office" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/bagidea/bagidea-office/releases/tag/v0.9.27" target="_blank" rel="noopener">证据 2</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>例如把代码修改交给一个智能体、测试交给另一个智能体时，用户可以从办公室场景观察它们是否已到岗、正在协作还是等待安全授权，而不必逐个翻终端。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>项目在 2026-06-24 发布 v0.9.27，属于当天可核验的正式 Release；候选证据未说明该版本的具体改动，因此这里只确认项目仍在快速发布。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>视觉化会增加桌面资源占用和配置复杂度；角色动作只能表达预设状态，不能代替日志、代码差异和权限审计。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合已经并行使用多个编码智能体、希望获得持续状态感知的个人或小团队；只需要单一命令行智能体的人收益有限。</p>
+          <a class="source-link" href="https://github.com/bagidea/bagidea-office" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-24/2026-06-24-bagidea__bagidea-office.png" alt="bagidea/bagidea-office 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-2">
+        <div class="tool-copy">
+          <div class="eyebrow">Agent 工作流 / 第 2 个工具</div>
+          <h2>orca</h2>
+          <p class="repo-name">stablyai/orca</p>
+          <p class="plain">多个编码智能体并行工作时，开发者往往要在不同工具和设备间切换，难以统一调度任务并持续查看执行状态。Orca 充当面向智能体队列的开发环境，允许接入不同编码智能体及用户已有订阅，并提供桌面端和移动端入口来管理并行任务。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/stablyai/orca" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/stablyai/orca/releases/tag/v1.4.95" target="_blank" rel="noopener">证据 2</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>例如开发者离开电脑后，可以从手机继续查看多个修复任务的进度，再决定把新的排查任务分配给 Codex、Claude Code 或其他已接入代理。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>项目在 2026-06-24 发布 v1.4.95，是当天正式 Release；现有候选只证明版本发布与产品定位，不能据此断言该版本新增了哪项功能。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>统一入口仍受各家智能体能力、订阅限制和认证方式约束；并行任务越多，代码冲突、成本控制和结果复核的负担也越高。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合确实需要跨设备调度多个编码智能体的开发者；工作流以单仓库、单代理为主时，额外调度层可能得不偿失。</p>
+          <a class="source-link" href="https://github.com/stablyai/orca" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-24/2026-06-24-stablyai__orca.png" alt="stablyai/orca 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-3">
+        <div class="tool-copy">
+          <div class="eyebrow">知识库增强 / 第 3 个工具</div>
+          <h2>ctx</h2>
+          <p class="repo-name">stevesolun/ctx</p>
+          <p class="plain">把大量 Skills、Agents、MCP 和执行框架全部塞进一次开发会话，会让上下文膨胀，也会把无关工具带来的 token 与本地计算成本叠加进去。ctx 用知识图谱充当推荐层，根据当前开发窗口从组织自有工具或随附资源中挑选相关能力，只加载眼下需要的 Skills、Agents、MCP 和 Harness，而不是把完整目录交给模型。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/stevesolun/ctx" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/stevesolun/ctx/releases/tag/v1.0.19" target="_blank" rel="noopener">证据 2</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>例如当前任务只是排查数据库迁移，推荐层可以加载数据库相关技能和连接器，暂不注入前端设计、图像生成及其他无关能力。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>项目在 2026-06-22 发布 v1.0.19，属于七天窗口内的正式 Release；当前证据没有版本说明，因此不能把后续普通 push 解读成新功能发布。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>推荐质量取决于图谱标签、任务识别和组织工具元数据；漏选关键能力会降低完成率，错误推荐则仍会浪费上下文，而且候选中的大规模节点数量尚不能代表内容质量。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合工具目录很大、同时重视 token 预算和上下文治理的智能体平台团队；工具数量较少的个人项目没必要先引入推荐层。</p>
+          <a class="source-link" href="https://github.com/stevesolun/ctx" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-24/2026-06-24-stevesolun__ctx.png" alt="stevesolun/ctx 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-4">
+        <div class="tool-copy">
+          <div class="eyebrow">Skill 工作流 / 第 4 个工具</div>
+          <h2>OpenViking</h2>
+          <p class="repo-name">volcengine/OpenViking</p>
+          <p class="plain">智能体的记忆、资料和技能常由不同组件保存，检索入口与生命周期不一致，导致上下文难以分层管理，也不容易只取当前任务需要的部分。OpenViking 把记忆、资源和技能统一组织成类似文件系统的上下文数据库，通过层级目录向智能体提供不同粒度的信息，并支持上下文随使用过程演进。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/volcengine/OpenViking" target="_blank" rel="noopener">证据 1</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>例如客服智能体可以先读取产品目录，再按具体问题进入某个型号的资料与历史处理记录，无需每次把全部知识和技能注入提示词。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>仓库在 2026-06-24 有普通 push，说明近期仍活跃，但没有候选可核验的正式 Release，不能据此声称当天发布了新版本或具体功能。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>文件系统范式仍需要合理的目录、权限和更新策略；层级设计不当会造成信息藏得过深或重复，所谓自演进内容也需要审核与回滚机制。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合正在统一智能体记忆、RAG 资源和技能管理的基础设施团队；只做短会话问答、上下文规模较小的应用可先用更简单的存储方案。</p>
+          <a class="source-link" href="https://github.com/volcengine/OpenViking" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-24/2026-06-24-volcengine__openviking.png" alt="volcengine/OpenViking 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-5">
+        <div class="tool-copy">
+          <div class="eyebrow">RAG 与自动化 / 第 5 个工具</div>
+          <h2>pipeshub-ai</h2>
+          <p class="repo-name">pipeshub-ai/pipeshub-ai</p>
+          <p class="plain">企业信息分散在 Drive、Gmail、Notion 等系统中，员工既难统一检索，也难让自动化流程说明答案和动作来自哪份内部资料。PipesHub 提供可扩展的企业搜索与工作流平台，把不同办公数据源接入同一知识与智能体层，并强调让检索和自动化过程具备可解释线索。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/pipeshub-ai/pipeshub-ai" target="_blank" rel="noopener">证据 1</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>例如员工询问某客户的最新决策时，系统可跨邮件、共享文档和 Notion 汇集相关材料，再把结果交给后续工作流，而不是让员工分别搜索三个系统。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>仓库在 2026-06-24 有普通 push，但候选中的 README 片段甚至包含分支测试备注；这只能说明代码活动，不能当作正式 Release 或重大产品更新。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>企业连接器会引入授权、数据同步、索引新鲜度和敏感信息隔离问题；可解释性是否足够仍需结合真实引用、权限继承和审计记录验证。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合需要自托管并整合多种办公数据源的企业平台团队；数据源单一或缺乏权限治理能力的组织不宜急于扩大接入范围。</p>
+          <a class="source-link" href="https://github.com/pipeshub-ai/pipeshub-ai" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-24/2026-06-24-pipeshub-ai__pipeshub-ai.png" alt="pipeshub-ai/pipeshub-ai 配图" loading="lazy"></figure>
+      </section>
+    </article>
+    <section class="ending">
+      <strong>结论：</strong>今天这 5 个项目并不是同一种工具：bagidea/bagidea-office、stablyai/orca、stevesolun/ctx、volcengine/OpenViking、pipeshub-ai/pipeshub-ai。它们分别切入工具调用、知识管理、自动化和长期协作等任务。真正值得关注的不是哪个项目最火，而是它能否解决真实问题，并在配置成本、稳定性和使用边界上经得起验证。
+    </section>
+  </main>
+</body>
+</html>
