@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</title>
+  <style>
+    :root {
+      --ink:#16201d; --muted:#5f6f68; --paper:#f7f2ea; --panel:#fffaf2;
+      --line:#dacfc0; --accent:#b85c3b; --green:#2f6f61; --dark:#111b18;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--paper); color:var(--ink); }
+    a { color:inherit; }
+    .page { max-width:1180px; margin:0 auto; padding:28px; }
+    .topbar { display:flex; justify-content:space-between; gap:18px; align-items:center; font-size:13px; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:14px; }
+    .brand { font-weight:800; color:var(--accent); letter-spacing:.08em; text-transform:uppercase; }
+    .hero { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr); gap:34px; align-items:end; padding:54px 0 34px; }
+    .hero h1 { font-family:Georgia, "Times New Roman", serif; font-size:clamp(40px,6vw,76px); line-height:.96; letter-spacing:0; margin:14px 0 18px; }
+    .hero p { font-size:18px; line-height:1.75; color:#485650; max-width:760px; }
+    .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+    .pill { border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:rgba(255,250,242,.7); color:#4a5852; font-size:13px; }
+    .hero-visual { margin:0; border-radius:10px; overflow:hidden; background:var(--dark); box-shadow:0 18px 60px rgba(48,34,22,.18); }
+    .hero-visual img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
+    .toc { position:sticky; top:0; z-index:2; display:flex; gap:8px; overflow:auto; padding:14px 0; background:linear-gradient(var(--paper) 72%, rgba(247,242,234,.8)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .toc a { white-space:nowrap; text-decoration:none; color:#35423d; border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:var(--panel); font-size:13px; }
+    .intro { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:32px 0; }
+    .note { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:20px; line-height:1.7; color:#40504a; }
+    .model-updates { padding:34px 0 20px; border-top:1px solid var(--line); }
+    .section-heading { display:flex; align-items:end; justify-content:space-between; gap:18px; margin-bottom:18px; }
+    .section-heading h2 { font-family:Georgia, "Times New Roman", serif; font-size:38px; margin:0; }
+    .update-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .update-card, .empty-update { background:var(--dark); color:#eef3ef; border-radius:9px; padding:20px; line-height:1.7; }
+    .update-card h3 { font-size:20px; line-height:1.35; margin:10px 0 14px; }
+    .update-card p { color:#cbd6d0; }
+    .update-card a { color:#f1b092; }
+    .update-meta { color:#95b5aa; font-size:12px; }
+    .tool-section { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,420px); gap:28px; padding:42px 0; border-top:1px solid var(--line); }
+    .eyebrow { color:var(--accent); font-size:12px; text-transform:uppercase; letter-spacing:.08em; font-weight:800; }
+    .tool-section h2 { font-family:Georgia, "Times New Roman", serif; font-size:36px; margin:10px 0 12px; }
+    .repo-name { margin:-4px 0 18px; color:var(--muted); font-size:14px; }
+    .plain { font-size:18px; line-height:1.7; color:#33423d; }
+    .evidence { background:rgba(255,250,242,.78); border-left:4px solid var(--green); padding:16px 18px; margin:20px 0; line-height:1.65; }
+    h3 { margin:0 0 10px; font-size:15px; }
+    .grid-two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .grid-two > div, .story-block { background:rgba(255,250,242,.56); border:1px solid rgba(218,207,192,.8); border-radius:8px; padding:16px; line-height:1.75; color:#40504a; }
+    .grid-two p, .story-block p { margin:0; }
+    .verdict { margin:18px 0 0; padding:16px 18px; border-radius:8px; background:#e8efe9; color:#253b33; line-height:1.75; }
+    ul { padding-left:18px; line-height:1.7; color:#485650; }
+    .source-link { display:inline-block; margin-top:12px; text-decoration:none; color:white; background:var(--dark); padding:10px 14px; border-radius:6px; }
+    .tool-visual { margin:0; border-radius:10px; overflow:hidden; align-self:start; background:#18221f; box-shadow:0 14px 40px rgba(48,34,22,.16); }
+    .tool-visual img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
+    .ending { border-top:1px solid var(--line); padding:34px 0 60px; font-size:19px; line-height:1.8; color:#35443f; }
+    @media (max-width:860px) {
+      .page { padding:18px; }
+      .hero, .tool-section, .intro, .grid-two, .update-grid { grid-template-columns:1fr; }
+      .hero { padding-top:32px; }
+      .tool-section h2 { font-size:30px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar"><div class="brand">AI Tool Brief</div><div>2026-06-25 / 今日观察</div></header>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">今日图文文章</div>
+        <h1>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</h1>
+        <p>今天精选 5 个项目，覆盖Agent 工具接入、Agent 工作流、知识库增强、RAG 与自动化。重点不是热度，而是它们能否解决真实任务。</p>
+        <div class="meta">
+          <span class="pill">5 个新工具</span>
+          <span class="pill">大白话解释</span>
+          <span class="pill">优缺点判断</span>
+        </div>
+      </div>
+      <figure class="hero-visual"><img src="../assets/2026-06-25/2026-06-25-jeremylongshore__claude-code-plugins-plus-skills.png" alt="文章主视觉"></figure>
+    </section>
+    <nav class="toc"><a href="#tool-1">1. jeremylongshore/claude-code-plugins-plus-skills</a>
+<a href="#tool-2">2. max-sixty/worktrunk</a>
+<a href="#tool-3">3. WenyuChiou/ai-research-skills</a>
+<a href="#tool-4">4. agenticloops-ai/agentic-ai-engineering</a>
+<a href="#tool-5">5. mensfeld/craftdesk</a></nav>
+    <section class="intro">
+      <div class="note"><strong>为什么值得看：</strong>这些项目共同指向一个变化：AI 不再只是回答问题，而是开始接入工具、记住资料、拆解任务，帮人处理更完整的工作。</div>
+      <div class="note"><strong>怎么判断好不好用：</strong>别只看热度。更重要的是它能不能解决一个真实问题、配置成本高不高、普通人有没有清晰的使用入口。</div>
+    </section>
+    <section class="model-updates" id="model-updates">
+      <div class="section-heading"><div class="eyebrow">模型观察</div><h2>前沿模型动态</h2></div>
+      <div class="empty-update">今日未发现可核验的新动态。</div>
+    </section>
+    <article>
+      <section class="tool-section" id="tool-1">
+        <div class="tool-copy">
+          <div class="eyebrow">Agent 工具接入 / 第 1 个工具</div>
+          <h2>claude-code-plugins-plus-skills</h2>
+          <p class="repo-name">jeremylongshore/claude-code-plugins-plus-skills</p>
+          <p class="plain">Claude Code 的插件、skills 和 agents 数量变多后，团队很难靠收藏链接或复制目录来管理：想找一个 DevOps、MCP 或自动化能力时，不知道去哪搜；装过什么、能不能更新，也容易散在不同项目里。这个项目把 Claude Code 插件、skills 和 agents 做成一个开源市场，并提供 `ccpi` CLI。用户可以按关键词搜索插件，安装某个插件包，查看本机已安装内容，再统一更新。它更像一个面向 Claude Code 能力包的包管理入口，而不是单个 agent 示例。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/jeremylongshore/claude-code-plugins-plus-skills" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/jeremylongshore/claude-code-plugins-plus-skills/releases/tag/%40intentsolutionsio/beads-dolt%400.1.0" target="_blank" rel="noopener">证据 2</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>比如一个开发者想给 Claude Code 增加 DevOps 自动化能力，可以先用 `ccpi search devops` 找相关包，再安装 `devops-automation-pack`，之后用 `ccpi list --installed` 检查本机已有插件，用 `ccpi update` 拉取更新。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>候选证据显示它在 2026-06-25 有正式 Release，且当天仍有 push 活动；这比普通更新时间更强，说明至少有一个可追踪的版本发布事件。Claude Code 生态正在快速长出插件和 skill 目录，这类索引/安装层会变得更实用。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>优势是发现、安装和更新路径更集中；代价是能力包质量会受市场治理影响，安装前仍要检查每个插件的权限、脚本行为和维护状态。它今天有正式 Release 证据，但 Release 标签只说明仓库发布了一个包版本，不等于市场内所有插件都经过同等质量验证。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合频繁试用 Claude Code 插件、需要统一管理本地能力包的开发者或小团队；不适合把第三方插件直接用于敏感仓库的人，除非先做来源审查和隔离测试。</p>
+          <a class="source-link" href="https://github.com/jeremylongshore/claude-code-plugins-plus-skills" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-25/2026-06-25-jeremylongshore__claude-code-plugins-plus-skills.png" alt="jeremylongshore/claude-code-plugins-plus-skills 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-2">
+        <div class="tool-copy">
+          <div class="eyebrow">Agent 工作流 / 第 2 个工具</div>
+          <h2>worktrunk</h2>
+          <p class="repo-name">max-sixty/worktrunk</p>
+          <p class="plain">并行使用多个 AI 编码 agent 时，最大麻烦不是让 agent 写代码，而是每个任务需要隔离分支、隔离目录、能看清谁改了什么。手动 `git worktree` 能做到，但命令长、状态分散，任务多了以后容易切错目录或漏清理。Worktrunk 把 Git worktree 的创建、切换、列表查看包装成更直接的 CLI。它围绕“一个任务一个 worktree”的工作方式设计，让开发者可以为新功能创建独立分支和目录，再用列表命令查看各 worktree 状态。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/max-sixty/worktrunk" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/max-sixty/worktrunk/releases/tag/v0.61.0" target="_blank" rel="noopener">证据 2</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>比如要让一个 agent 改登录功能，可以执行类似 `wt switch --create feature-auth` 的命令创建 `feature-auth` 分支和对应 worktree。agent 在这个目录里工作，主目录和其他任务目录不会混在一起，结束后再用列表命令检查状态。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>候选证据显示它在 2026-06-21 有正式 Release，属于 7 天内发布；2026-06-25 还有 push 活动。正式 Release 是较强新鲜度依据，后续 push 只能说明仍在维护，不能单独当成新版本发布。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>它降低了 worktree 的日常操作成本，但没有替你解决分支策略、冲突合并和任务拆分问题。团队如果本来 Git 习惯混乱，引入它只能让目录隔离更方便，不能自动保证每个 agent 的改动都容易合并。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合已经在用 Codex、Claude Code 等工具并行处理多个代码任务的人；如果只是偶尔开一个分支，原生命令或 IDE Git 面板可能已经够用。</p>
+          <a class="source-link" href="https://github.com/max-sixty/worktrunk" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-25/2026-06-25-max-sixty__worktrunk.png" alt="max-sixty/worktrunk 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-3">
+        <div class="tool-copy">
+          <div class="eyebrow">知识库增强 / 第 3 个工具</div>
+          <h2>ai-research-skills</h2>
+          <p class="repo-name">WenyuChiou/ai-research-skills</p>
+          <p class="plain">研究工作里，AI 容易把“找资料、想选题、写初稿”都做成即时聊天，结果缺少关卡：题目是否已经过时、贡献是否站得住、方法是否可执行，经常到后期才暴露问题。这个仓库把研究流程拆成一组通用 `SKILL.md`：文献综述、研究设计、项目记忆、论文写作和跨 agent 分工等。候选文本强调先用三道关卡筛选 thesis topic，再进入文献、设计、实验、写作和投稿流程。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/WenyuChiou/ai-research-skills" target="_blank" rel="noopener">证据 1</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>比如准备一个论文选题时，可以先让 skill 生成候选主题的决策档案，检查研究空白是否真实、贡献是否明确、资源是否够做；只有通过这些检查，才继续进入文献整理和研究设计。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>候选证据显示它在 2026-06-23 有普通 push，属于 7 天内活跃，但没有正式 Release 证据。因此今天的价值主要来自近期维护和研究型 skill 目录的完整度，而不是一个可验证的新版本发布。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>它的价值在流程约束，不在替代领域专家判断。研究者仍要自己核验文献、方法和数据可得性；如果把 skill 输出当成最终学术判断，反而可能把错误假设包装得更像流程化结论。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合研究生、独立研究者或需要把 AI 纳入研究流程的团队；不适合希望一键生成论文的人，它更像研究流程脚手架，而不是学术质量担保器。</p>
+          <a class="source-link" href="https://github.com/WenyuChiou/ai-research-skills" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-25/2026-06-25-wenyuchiou__ai-research-skills.png" alt="WenyuChiou/ai-research-skills 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-4">
+        <div class="tool-copy">
+          <div class="eyebrow">RAG 与自动化 / 第 4 个工具</div>
+          <h2>agentic-ai-engineering</h2>
+          <p class="repo-name">agenticloops-ai/agentic-ai-engineering</p>
+          <p class="plain">很多 agent 教程直接给框架或模板，学习者能跑起来，却不一定理解 agent loop、工具调用和 prompt 设计之间怎么配合。结果一换模型或任务，就不知道该改循环、工具还是提示词。这个仓库定位为从零构建 AI agent 的实战教程，覆盖 LLM API、prompt engineering、tool calling 和 agent loop。它的重点是把 agent 的核心循环拆开讲，让学习者理解每一步为什么存在。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/agenticloops-ai/agentic-ai-engineering" target="_blank" rel="noopener">证据 1</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>比如学习工具调用时，可以先从一个简单 LLM API 调用开始，再加入工具描述、模型选择工具、执行工具、把结果回填给模型这一轮循环。这样比直接套用大型框架更容易看清错误出在哪一层。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>候选证据显示它在 2026-06-25 有普通 push，属于近 24 小时活跃，但没有正式 Release。今天把它列入，依据是近期维护和 agent 基础教程需求，而不是某个可验证的新版本发布。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>教程型项目适合建立概念和动手练习，但不等于生产框架。它可能缺少企业项目需要的权限、审计、队列、观测和错误恢复能力；学习后仍要把这些工程层补上。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合想理解 agent 底层机制的开发者、课程作者和准备从框架使用转向自定义 agent 的团队；如果目标是快速上线稳定系统，应把它当学习材料，再另选成熟运行框架。</p>
+          <a class="source-link" href="https://github.com/agenticloops-ai/agentic-ai-engineering" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-25/2026-06-25-agenticloops-ai__agentic-ai-engineering.png" alt="agenticloops-ai/agentic-ai-engineering 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-5">
+        <div class="tool-copy">
+          <div class="eyebrow">Skill 工作流 / 第 5 个工具</div>
+          <h2>craftdesk</h2>
+          <p class="repo-name">mensfeld/craftdesk</p>
+          <p class="plain">Claude Code skills、agents、commands、hooks 和插件越来越多后，本地能力目录会变成手工复制的杂物箱：版本不好追踪，依赖关系不清楚，也难判断哪些能力来自哪里。Craftdesk 把这些 AI 相关资源作为可安装、可管理、可版本控制的依赖来处理。候选证据把它描述为面向 Claude Code skills 和 agents 的包管理器，提供安装、管理和版本控制这条主线。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/mensfeld/craftdesk" target="_blank" rel="noopener">证据 1</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>比如团队有一套内部 Claude Code skills，同时还想试用外部 agents，可以用 Craftdesk 这类工具把资源作为依赖管理，而不是让每个人手动复制目录。这样更容易复现某个工作环境，也更容易回滚。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>候选证据显示它在 2026-06-25 有普通 push，属于近 24 小时活跃；没有 Release 证据。它今天值得看，是因为 AI 编码工具正在从单个提示词转向可复用能力包，本地依赖管理会越来越常见。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>包管理思路能提升可复现性，但也会带来供应链审查问题：skills 和 hooks 可能影响代码生成、命令执行或上下文读取。候选只显示普通 push，没有正式 Release，因此不应把当天更新解读成稳定版本发布。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合正在沉淀 Claude Code 能力库、希望统一安装和版本管理的个人或团队；如果只是临时试几个 skill，直接手工放置可能更简单。</p>
+          <a class="source-link" href="https://github.com/mensfeld/craftdesk" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-25/2026-06-25-mensfeld__craftdesk.png" alt="mensfeld/craftdesk 配图" loading="lazy"></figure>
+      </section>
+    </article>
+    <section class="ending">
+      <strong>结论：</strong>今天这 5 个项目并不是同一种工具：jeremylongshore/claude-code-plugins-plus-skills、max-sixty/worktrunk、WenyuChiou/ai-research-skills、agenticloops-ai/agentic-ai-engineering、mensfeld/craftdesk。它们分别切入工具调用、知识管理、自动化和长期协作等任务。真正值得关注的不是哪个项目最火，而是它能否解决真实问题，并在配置成本、稳定性和使用边界上经得起验证。
+    </section>
+  </main>
+</body>
+</html>
