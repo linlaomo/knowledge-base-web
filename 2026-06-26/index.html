@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</title>
+  <style>
+    :root {
+      --ink:#16201d; --muted:#5f6f68; --paper:#f7f2ea; --panel:#fffaf2;
+      --line:#dacfc0; --accent:#b85c3b; --green:#2f6f61; --dark:#111b18;
+    }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background:var(--paper); color:var(--ink); }
+    a { color:inherit; }
+    .page { max-width:1180px; margin:0 auto; padding:28px; }
+    .topbar { display:flex; justify-content:space-between; gap:18px; align-items:center; font-size:13px; color:var(--muted); border-bottom:1px solid var(--line); padding-bottom:14px; }
+    .brand { font-weight:800; color:var(--accent); letter-spacing:.08em; text-transform:uppercase; }
+    .hero { display:grid; grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr); gap:34px; align-items:end; padding:54px 0 34px; }
+    .hero h1 { font-family:Georgia, "Times New Roman", serif; font-size:clamp(40px,6vw,76px); line-height:.96; letter-spacing:0; margin:14px 0 18px; }
+    .hero p { font-size:18px; line-height:1.75; color:#485650; max-width:760px; }
+    .meta { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+    .pill { border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:rgba(255,250,242,.7); color:#4a5852; font-size:13px; }
+    .hero-visual { margin:0; border-radius:10px; overflow:hidden; background:var(--dark); box-shadow:0 18px 60px rgba(48,34,22,.18); }
+    .hero-visual img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
+    .toc { position:sticky; top:0; z-index:2; display:flex; gap:8px; overflow:auto; padding:14px 0; background:linear-gradient(var(--paper) 72%, rgba(247,242,234,.8)); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .toc a { white-space:nowrap; text-decoration:none; color:#35423d; border:1px solid var(--line); border-radius:999px; padding:8px 12px; background:var(--panel); font-size:13px; }
+    .intro { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:32px 0; }
+    .note { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:20px; line-height:1.7; color:#40504a; }
+    .model-updates { padding:34px 0 20px; border-top:1px solid var(--line); }
+    .section-heading { display:flex; align-items:end; justify-content:space-between; gap:18px; margin-bottom:18px; }
+    .section-heading h2 { font-family:Georgia, "Times New Roman", serif; font-size:38px; margin:0; }
+    .update-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; }
+    .update-card, .empty-update { background:var(--dark); color:#eef3ef; border-radius:9px; padding:20px; line-height:1.7; }
+    .update-card h3 { font-size:20px; line-height:1.35; margin:10px 0 14px; }
+    .update-card p { color:#cbd6d0; }
+    .update-card a { color:#f1b092; }
+    .update-meta { color:#95b5aa; font-size:12px; }
+    .tool-section { display:grid; grid-template-columns:minmax(0,1fr) minmax(280px,420px); gap:28px; padding:42px 0; border-top:1px solid var(--line); }
+    .eyebrow { color:var(--accent); font-size:12px; text-transform:uppercase; letter-spacing:.08em; font-weight:800; }
+    .tool-section h2 { font-family:Georgia, "Times New Roman", serif; font-size:36px; margin:10px 0 12px; }
+    .repo-name { margin:-4px 0 18px; color:var(--muted); font-size:14px; }
+    .plain { font-size:18px; line-height:1.7; color:#33423d; }
+    .evidence { background:rgba(255,250,242,.78); border-left:4px solid var(--green); padding:16px 18px; margin:20px 0; line-height:1.65; }
+    h3 { margin:0 0 10px; font-size:15px; }
+    .grid-two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .grid-two > div, .story-block { background:rgba(255,250,242,.56); border:1px solid rgba(218,207,192,.8); border-radius:8px; padding:16px; line-height:1.75; color:#40504a; }
+    .grid-two p, .story-block p { margin:0; }
+    .verdict { margin:18px 0 0; padding:16px 18px; border-radius:8px; background:#e8efe9; color:#253b33; line-height:1.75; }
+    ul { padding-left:18px; line-height:1.7; color:#485650; }
+    .source-link { display:inline-block; margin-top:12px; text-decoration:none; color:white; background:var(--dark); padding:10px 14px; border-radius:6px; }
+    .tool-visual { margin:0; border-radius:10px; overflow:hidden; align-self:start; background:#18221f; box-shadow:0 14px 40px rgba(48,34,22,.16); }
+    .tool-visual img { width:100%; display:block; aspect-ratio:4/3; object-fit:cover; }
+    .ending { border-top:1px solid var(--line); padding:34px 0 60px; font-size:19px; line-height:1.8; color:#35443f; }
+    @media (max-width:860px) {
+      .page { padding:18px; }
+      .hero, .tool-section, .intro, .grid-two, .update-grid { grid-template-columns:1fr; }
+      .hero { padding-top:32px; }
+      .tool-section h2 { font-size:30px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar"><div class="brand">AI Tool Brief</div><div>2026-06-26 / 今日观察</div></header>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">今日图文文章</div>
+        <h1>今天值得认识的 5 个 AI 工具：它们正在让助手变得更会干活</h1>
+        <p>今天精选 5 个项目，覆盖Agent 工具接入、Agent 工作流、Skill 工作流、知识库增强。重点不是热度，而是它们能否解决真实任务。</p>
+        <div class="meta">
+          <span class="pill">5 个新工具</span>
+          <span class="pill">大白话解释</span>
+          <span class="pill">优缺点判断</span>
+        </div>
+      </div>
+      <figure class="hero-visual"><img src="../assets/2026-06-26/2026-06-26-bagidea__bagidea-office.png" alt="文章主视觉"></figure>
+    </section>
+    <nav class="toc"><a href="#tool-1">1. bagidea/bagidea-office</a>
+<a href="#tool-2">2. marcusquinn/aidevops</a>
+<a href="#tool-3">3. iOfficeAI/OfficeCLI</a>
+<a href="#tool-4">4. takeshy/obsidian-local-llm-hub</a>
+<a href="#tool-5">5. Anil-matcha/awesome-generative-ai-apps</a></nav>
+    <section class="intro">
+      <div class="note"><strong>为什么值得看：</strong>这些项目共同指向一个变化：AI 不再只是回答问题，而是开始接入工具、记住资料、拆解任务，帮人处理更完整的工作。</div>
+      <div class="note"><strong>怎么判断好不好用：</strong>别只看热度。更重要的是它能不能解决一个真实问题、配置成本高不高、普通人有没有清晰的使用入口。</div>
+    </section>
+    <section class="model-updates" id="model-updates">
+      <div class="section-heading"><div class="eyebrow">模型观察</div><h2>前沿模型动态</h2></div>
+      <div class="update-grid"><article class="update-card">
+          <div class="update-meta">OpenAI News · OpenAI News · 2026-06-25</div>
+          <h3>OpenAI 发布企业 Agent 工作方式观察</h3>
+          <p><strong>发生了什么：</strong>OpenAI 用公司文章集中讨论 Agent 正在怎样进入日常工作流，重点不是发布新模型，而是描述 Agent 在任务执行、协作和组织流程中的实际落点。</p>
+          <p><strong>为什么重要：</strong>这类官方叙事说明厂商正在把 Agent 从演示能力推向企业使用场景，后续工具链、权限控制、审计和人机协作流程可能会围绕真实工作任务继续收紧。</p>
+          <p><strong>谁该关注：</strong>正在评估 Agent 落地的企业团队、内部工具负责人、自动化平台开发者，以及需要判断 Agent 是否适合生产流程的技术管理者。</p>
+          <a href="https://openai.com/index/how-agents-are-transforming-work/" target="_blank" rel="noopener">查看官方来源</a>
+        </article></div>
+    </section>
+    <article>
+      <section class="tool-section" id="tool-1">
+        <div class="tool-copy">
+          <div class="eyebrow">Agent 工具接入 / 第 1 个工具</div>
+          <h2>bagidea-office</h2>
+          <p class="repo-name">bagidea/bagidea-office</p>
+          <p class="plain">多 Agent 编排通常藏在终端、日志和后台队列里，普通使用者很难看出哪个 Agent 在等待权限、哪个在处理任务、哪个需要协作。它把 Claude Code 一类 Agent 放进 2.5D 桌面壁纸场景里，用空间位置表达工作状态：开始任务时走到工位，需要授权时去安全台，协作时进入会议；同时允许不同 Agent 使用 Claude、GLM、DeepSeek、Qwen、Kimi、OpenAI、Gemini、Groq、Ollama 等模型。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/bagidea/bagidea-office" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/bagidea/bagidea-office/releases/tag/v0.9.30" target="_blank" rel="noopener">证据 2</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>一个人可以把代码修改交给某个 Agent，把审查或通知交给另一个 Agent；桌面场景里能看到它们何时开始、何时等待许可、何时进入协作，而不是只盯着一串命令输出。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>候选证据显示 2026-06-26 发布了 v0.9.30，属于正式 Release，不只是普通 push；这说明项目在最近一天内有可追踪版本更新。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>可视化会降低理解成本，但也会带来额外运行环境和界面复杂度；如果团队只需要批处理式自动化，桌面壁纸式呈现可能比命令行更重。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合想把多 Agent 工作状态做得可见、可演示、可分工的个人或小团队；不适合只追求最小后台执行成本的自动化场景。</p>
+          <a class="source-link" href="https://github.com/bagidea/bagidea-office" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-26/2026-06-26-bagidea__bagidea-office.png" alt="bagidea/bagidea-office 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-2">
+        <div class="tool-copy">
+          <div class="eyebrow">Agent 工作流 / 第 2 个工具</div>
+          <h2>aidevops</h2>
+          <p class="repo-name">marcusquinn/aidevops</p>
+          <p class="plain">AI 写代码越来越容易，但把仓库、部署、安全检查、长期维护和自动化任务串成稳定流程仍然麻烦，很多团队卡在 DevOps 的日常细节上。它提供一套偏工程化的 CLI、API、服务和 Agent 配置，围绕 OpenCode、Git 和 token 使用做自动化；安装后通过 `aidevops update` 把 Agent 部署到本机目录，让仓库可以复用同一套运维和开发助手。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/marcusquinn/aidevops" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/marcusquinn/aidevops/releases/tag/v3.22.4" target="_blank" rel="noopener">证据 2</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>维护多个项目的人可以用同一套 aidevops Agent 处理仓库检查、更新提示或自动化任务，而不是在每个项目里临时拼脚本和提示词。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>候选证据显示 2026-06-26 发布了 v3.22.4，属于正式 Release；当天还有 push，但当前价值判断主要来自可验证的 Release 节点。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>强约束工具栈能减少重复搭建，但也会把使用者带入作者的工作流假设；如果现有 CI/CD、安全扫描和权限模型已经成熟，接入前需要评估重叠和冲突。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合个人开发者、独立团队或多仓库维护者试用；大型团队更适合作为实验性辅助层，而不是直接替换既有 DevOps 平台。</p>
+          <a class="source-link" href="https://github.com/marcusquinn/aidevops" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-26/2026-06-26-marcusquinn__aidevops.png" alt="marcusquinn/aidevops 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-3">
+        <div class="tool-copy">
+          <div class="eyebrow">Skill 工作流 / 第 3 个工具</div>
+          <h2>OfficeCLI</h2>
+          <p class="repo-name">iOfficeAI/OfficeCLI</p>
+          <p class="plain">AI Agent 处理 Word、Excel、PowerPoint 时经常缺少稳定的文件级操作入口，依赖桌面 Office、宏或临时脚本会让自动化难以复现。它把 Office 文档操作封装成单二进制 CLI，不要求安装 Office；Agent 可以用命令创建 PPTX、添加幻灯片、插入形状、设置字体颜色，并把文档结构转成可读 outline。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/iOfficeAI/OfficeCLI" target="_blank" rel="noopener">证据 1</a> <a href="https://github.com/iOfficeAI/OfficeCLI/releases/tag/v1.0.121" target="_blank" rel="noopener">证据 2</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>一个 Agent 生成周报时，可以先创建 deck.pptx，再向第一页添加标题和数据说明，最后读取 outline 检查结构是否符合要求。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>候选证据显示 2026-06-25 发布了 v1.0.121，属于 7 天内正式 Release；2026-06-26 的 push 不能单独视为新版发布。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>命令行接口利于自动化和审计，但复杂版式、品牌模板和视觉细节可能仍需要人工检查；跨格式兼容也需要用真实文件做回归测试。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合需要让 Agent 批量读写 Office 文件的自动化场景，尤其是报告、演示文稿和表格生成；对高保真排版要求极高的场景仍需人工验收。</p>
+          <a class="source-link" href="https://github.com/iOfficeAI/OfficeCLI" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-26/2026-06-26-iofficeai__officecli.png" alt="iOfficeAI/OfficeCLI 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-4">
+        <div class="tool-copy">
+          <div class="eyebrow">知识库增强 / 第 4 个工具</div>
+          <h2>obsidian-local-llm-hub</h2>
+          <p class="repo-name">takeshy/obsidian-local-llm-hub</p>
+          <p class="plain">很多 Obsidian 用户想用 AI 整理笔记、检索资料和自动化流程，但公司安全策略或隐私要求可能不允许把笔记发到云端模型。它作为 Obsidian 本地 AI hub，连接 Ollama、LM Studio、vLLM、AnythingLLM 等本地或自管 LLM 服务，并把聊天、vault 工具、MCP、RAG、工作流自动化、加密和编辑历史放在插件内处理。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/takeshy/obsidian-local-llm-hub" target="_blank" rel="noopener">证据 1</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>用户可以在插件设置里选择 Ollama，填入本地服务地址，验证连接后让模型基于 vault 内容回答问题或执行笔记整理任务，数据不必先上传到第三方 API。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>候选证据显示最近证据是 2026-06-25 的普通 push，没有正式 Release；它的新鲜度来自 7 天内活跃维护，而不是可确认的新版本发布。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>本地化提高隐私控制，但模型质量、推理速度和硬件成本取决于用户自己的环境；RAG 与自动化能力也需要维护索引和权限边界。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合重视隐私、已有本地 LLM 环境、并把 Obsidian 当长期知识库的人；只想开箱即用云端 AI 的用户会觉得配置成本偏高。</p>
+          <a class="source-link" href="https://github.com/takeshy/obsidian-local-llm-hub" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-26/2026-06-26-takeshy__obsidian-local-llm-hub.png" alt="takeshy/obsidian-local-llm-hub 配图" loading="lazy"></figure>
+      </section>
+<section class="tool-section" id="tool-5">
+        <div class="tool-copy">
+          <div class="eyebrow">实用媒体工具 / 第 5 个工具</div>
+          <h2>awesome-generative-ai-apps</h2>
+          <p class="repo-name">Anil-matcha/awesome-generative-ai-apps</p>
+          <p class="plain">想做生成式 AI 应用的人经常先卡在样例选择、部署模板和商业化方向上，零散搜索会消耗大量试错时间。它把 50 多个可克隆的开源生成式 AI 应用集中到一个列表里，覆盖图像生成、视频工具、虚拟试穿、AI SaaS 模板和平台集成，并强调每个模板可一键部署到 Vercel。</p>
+          <div class="evidence">
+            <h3>公开信息依据</h3>
+            <p><strong>核验证据：</strong><a href="https://github.com/Anil-matcha/awesome-generative-ai-apps" target="_blank" rel="noopener">证据 1</a></p>
+          </div>
+          <div class="story-block">
+            <h3>它适合什么场景</h3>
+            <p>一个开发者想验证 AI 图片工具商业化，可以先从列表挑一个 Next.js 模板部署到 Vercel，再替换模型、支付或素材流程做小范围测试。</p>
+          </div>
+          <div class="grid-two">
+            <div>
+              <h3>值得关注的地方</h3>
+              <p>候选证据显示最近证据是 2026-06-25 的普通 push，没有正式 Release；它只能说明列表近期有维护痕迹，不能说明某个模板发布了新版本。</p>
+            </div>
+            <div>
+              <h3>先别忽略的问题</h3>
+              <p>合集能加快找样例，但项目质量、维护状态和安全性需要逐个核验；模板越多，越容易把注意力放在复制界面而不是解决具体用户问题。</p>
+            </div>
+          </div>
+          <p class="verdict"><strong>我的判断：</strong>适合寻找生成式 AI 应用原型和部署样例的人；不适合把它当成经过统一质量审计的生产级组件库。</p>
+          <a class="source-link" href="https://github.com/Anil-matcha/awesome-generative-ai-apps" target="_blank" rel="noopener">查看 GitHub 来源</a>
+        </div>
+        <figure class="tool-visual"><img src="../assets/2026-06-26/2026-06-26-anil-matcha__awesome-generative-ai-apps.png" alt="Anil-matcha/awesome-generative-ai-apps 配图" loading="lazy"></figure>
+      </section>
+    </article>
+    <section class="ending">
+      <strong>结论：</strong>今天这 5 个项目并不是同一种工具：bagidea/bagidea-office、marcusquinn/aidevops、iOfficeAI/OfficeCLI、takeshy/obsidian-local-llm-hub、Anil-matcha/awesome-generative-ai-apps。它们分别切入工具调用、知识管理、自动化和长期协作等任务。真正值得关注的不是哪个项目最火，而是它能否解决真实问题，并在配置成本、稳定性和使用边界上经得起验证。
+    </section>
+  </main>
+</body>
+</html>
